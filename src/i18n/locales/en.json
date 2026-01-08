@@ -1,0 +1,95 @@
+{
+  "landing": {
+    "title": "Ana & Bogdan",
+    "subtitle": "If you've reached this page, you are invited to our awesome wedding"
+  },
+  "nav": {
+    "story": "Our Story",
+    "schedule": "Schedule",
+    "location": "Location",
+    "rsvp": "RSVP"
+  },
+  "eventDate": {
+    "title": "The Big Day",
+    "date": "06.06.2026",
+    "days": "Days",
+    "hours": "Hours",
+    "minutes": "Minutes"
+  },
+  "story": {
+    "title": "Our Story",
+    "subtitle": "Every love story is beautiful, but ours is our favorite",
+    "steps": {
+      "step1": {
+        "title": "How we met",
+        "text": "A chance encounter that would change everything. Sometimes the best stories begin when you least expect them."
+      },
+      "step2": {
+        "title": "Being besties",
+        "text": "From strangers to best friends. Late night talks, inside jokes, and a bond that kept growing stronger."
+      },
+      "step3": {
+        "title": "Making it official",
+        "text": "The moment we knew this was more than friendship. Taking the leap and never looking back."
+      },
+      "step4": {
+        "title": "Long distance works",
+        "text": "Miles apart but closer than ever. Proving that true love knows no distance."
+      },
+      "step5": {
+        "title": "Traveling",
+        "text": "Exploring the world together, one adventure at a time. Making memories across the globe."
+      },
+      "step6": {
+        "title": "The Proposal",
+        "text": "One question, one answer, and a lifetime of adventures ahead. She said yes!"
+      },
+      "step7": {
+        "title": "Today",
+        "text": "And now, we invite you to celebrate the next chapter of our journey with us."
+      }
+    }
+  },
+  "schedule": {
+    "title": "Schedule",
+    "ceremony": "Wedding Ceremony",
+    "party": "Party",
+    "events": {
+      "civilCeremony": "Civil Ceremony",
+      "religiousCeremony": "Religious Ceremony",
+      "picturesSnacks": "Pictures & Snacks",
+      "welcomeDrinks": "Welcome Drinks",
+      "firstDance": "First Dance",
+      "entree": "Entrée",
+      "firstCourse": "First Course",
+      "cakeFireworks": "Cake & Fireworks",
+      "secondCourse": "Second Course",
+      "danceTillDawn": "Dance Till Dawn"
+    }
+  },
+  "funCommittee": {
+    "title": "Fun Committee",
+    "nasi": "Godparents",
+    "groomsmen": "Groomsmen",
+    "bridesmaids": "Bridesmaids"
+  },
+  "location": {
+    "title": "Location",
+    "venueName": "La Boheme Noblesse - Restaurant evenimente Pitești"
+  },
+  "rsvp": {
+    "title": "RSVP",
+    "fullName": "Full Name",
+    "email": "Email",
+    "fullNamePlaceholder": "Enter your full name",
+    "emailPlaceholder": "Enter your email address",
+    "hasPartner": "Coming with partner?",
+    "partnerName": "Partner's Full Name",
+    "partnerNamePlaceholder": "Enter your partner's full name",
+    "submit": "Submit RSVP",
+    "submitting": "Submitting...",
+    "successMessage": "RSVP submitted successfully! We can't wait to see you!",
+    "errorMessage": "Failed to submit RSVP. Please try again."
+  }
+}
+

@@ -1,0 +1,95 @@
+{
+  "landing": {
+    "title": "Ana & Bogdan",
+    "subtitle": "Dacă ai ajuns aici, înseamnă că e oficial: ești invitat la nunta noastră!"
+  },
+  "nav": {
+    "story": "Povestea noastră",
+    "schedule": "Program",
+    "location": "Locație",
+    "rsvp": "Confirmare"
+  },
+  "eventDate": {
+    "title": "Ziua cea mare",
+    "date": "06.06.2026",
+    "days": "Zile",
+    "hours": "Ore",
+    "minutes": "Minute"
+  },
+  "story": {
+    "title": "Povestea noastră",
+    "subtitle": "Fiecare poveste de dragoste este frumoasă, dar a noastră este preferata noastră",
+    "steps": {
+      "step1": {
+        "title": "Cum ne-am cunoscut",
+        "text": "O întâlnire întâmplătoare care avea să schimbe totul. Uneori cele mai frumoase povești încep când te aștepți mai puțin."
+      },
+      "step2": {
+        "title": "Cei mai buni prieteni",
+        "text": "De la străini la cei mai buni prieteni. Discuții până noaptea târziu, glume doar ale noastre și o legătură care a crescut tot mai puternică."
+      },
+      "step3": {
+        "title": "Oficial împreună",
+        "text": "Momentul în care am știut că este mai mult decât prietenie. Am făcut pasul și nu ne-am uitat înapoi."
+      },
+      "step4": {
+        "title": "Distanța nu contează",
+        "text": "Kilometri depărtare dar mai apropiați ca niciodată. Dovada că iubirea adevărată nu cunoaște distanță."
+      },
+      "step5": {
+        "title": "Călătorii",
+        "text": "Explorând lumea împreună, o aventură pe rând. Creând amintiri pe tot globul."
+      },
+      "step6": {
+        "title": "Cererea",
+        "text": "O întrebare, un răspuns și o viață de aventuri înainte!"
+      },
+      "step7": {
+        "title": "Astăzi",
+        "text": "Și acum, vă invităm să sărbătoriți următorul capitol al călătoriei noastre alături de noi."
+      }
+    }
+  },
+  "schedule": {
+    "title": "Program",
+    "ceremony": "Ceremonia",
+    "party": "Petrecere",
+    "events": {
+      "civilCeremony": "Cununia civilă",
+      "religiousCeremony": "Cununia religioasă",
+      "picturesSnacks": "Poze & Gustări",
+      "welcomeDrinks": "Cocktail de bun venit",
+      "firstDance": "Primul dans",
+      "entree": "Aperitiv",
+      "firstCourse": "Felul întâi",
+      "cakeFireworks": "Tort & Artificii",
+      "secondCourse": "Felul doi",
+      "danceTillDawn": "Dans până în zori"
+    }
+  },
+  "funCommittee": {
+    "title": "Comitetul distracției",
+    "nasi": "Nașii",
+    "groomsmen": "Cavalerii",
+    "bridesmaids": "Domnișoarele de onoare"
+  },
+  "location": {
+    "title": "Locație",
+    "venueName": "La Boheme Noblesse - Restaurant evenimente Pitești"
+  },
+  "rsvp": {
+    "title": "Confirmare",
+    "fullName": "Nume Complet",
+    "email": "Email",
+    "fullNamePlaceholder": "Introduceți numele complet",
+    "emailPlaceholder": "Introduceți adresa de email",
+    "hasPartner": "Veniți cu partener/ă?",
+    "partnerName": "Numele Complet al Partenerului/ei",
+    "partnerNamePlaceholder": "Introduceți numele complet al partenerului/ei",
+    "submit": "Trimite Confirmarea",
+    "submitting": "Se trimite...",
+    "successMessage": "Confirmarea a fost trimisă cu succes! Abia așteptăm să te vedem!",
+    "errorMessage": "Nu am putut trimite confirmarea. Te rugăm să încerci din nou."
+  }
+}
+

@@ -1,0 +1,450 @@
+.story-section {
+  padding: 100px 20px 120px;
+  background: linear-gradient(180deg, #fdfcfb 0%, #f5f0eb 50%, #fdfcfb 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.story-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.8) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.story-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.story-subtitle {
+  text-align: center;
+  font-style: italic;
+  font-size: 1.3rem;
+  color: #8b7355;
+  margin-top: -30px;
+  margin-bottom: 80px;
+  letter-spacing: 0.5px;
+}
+
+/* Roadmap Container */
+.story-roadmap {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* SVG Path */
+.story-path {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.path-progress {
+  transition: stroke-dashoffset 0.1s ease-out;
+}
+
+.path-dashed {
+  transition: stroke-dashoffset 0.1s ease-out;
+}
+
+/* Story Steps */
+.story-steps {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  padding: 40px 0;
+}
+
+.story-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.story-step.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Left-aligned steps */
+.story-step.step-left {
+  flex-direction: row;
+  padding-right: calc(50% + 60px);
+  justify-content: flex-end;
+}
+
+.story-step.step-left .step-content {
+  text-align: right;
+}
+
+.story-step.step-left .step-text {
+  align-items: flex-end;
+}
+
+/* Right-aligned steps */
+.story-step.step-right {
+  flex-direction: row-reverse;
+  padding-left: calc(50% + 60px);
+  justify-content: flex-end;
+}
+
+.story-step.step-right .step-content {
+  text-align: left;
+}
+
+.story-step.step-right .step-text {
+  align-items: flex-start;
+}
+
+/* Step Marker */
+.step-marker {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, #d4a574 0%, #c9958a 50%, #b8860b 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 4px 20px rgba(212, 165, 116, 0.4),
+    0 0 0 6px rgba(212, 165, 116, 0.15),
+    inset 0 2px 4px rgba(255, 255, 255, 0.3);
+  z-index: 3;
+}
+
+.marker-number {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.marker-pulse {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: transparent;
+  border: 2px solid rgba(212, 165, 116, 0.5);
+  animation: pulse 2s ease-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+.story-step.visible .marker-pulse {
+  animation: pulse 2s ease-out infinite;
+}
+
+.story-step:not(.visible) .marker-pulse {
+  animation: none;
+  opacity: 0;
+}
+
+/* Step Content */
+.step-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 380px;
+}
+
+/* Image Container */
+.step-image-container {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 
+    0 10px 40px rgba(0,0,0,0.12),
+    0 4px 12px rgba(0,0,0,0.08);
+  transform: scale(0.95);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+}
+
+.story-step.visible .step-image-container {
+  transform: scale(1);
+}
+
+.step-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.step-image-container:hover .step-image {
+  transform: scale(1.05);
+}
+
+/* Specific styling for steps 3 and 4 to prevent head cropping */
+.story-step:nth-child(3) .step-image,
+.story-step:nth-child(4) .step-image {
+  object-position: center top;
+}
+
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 60%,
+    rgba(0,0,0,0.1) 100%
+  );
+  pointer-events: none;
+}
+
+/* Step Text */
+.step-text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.4s;
+}
+
+.story-step.visible .step-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.step-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #3d3d3d;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.step-description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #666;
+  margin: 0;
+}
+
+/* Animation delays for staggered effect */
+.story-step:nth-child(1) { transition-delay: 0s; }
+.story-step:nth-child(2) { transition-delay: 0.05s; }
+.story-step:nth-child(3) { transition-delay: 0.1s; }
+.story-step:nth-child(4) { transition-delay: 0.15s; }
+.story-step:nth-child(5) { transition-delay: 0.2s; }
+.story-step:nth-child(6) { transition-delay: 0.25s; }
+.story-step:nth-child(7) { transition-delay: 0.3s; }
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .story-step.step-left {
+    padding-right: calc(50% + 40px);
+  }
+  
+  .story-step.step-right {
+    padding-left: calc(50% + 40px);
+  }
+  
+  .step-content {
+    max-width: 320px;
+  }
+  
+  .step-image {
+    height: 240px;
+  }
+
+  .story-step:nth-child(3) .step-image,
+  .story-step:nth-child(4) .step-image {
+    height: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .story-section {
+    padding: 60px 20px 80px;
+  }
+  
+  .story-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 50px;
+  }
+  
+  .story-path {
+    left: 30px;
+    transform: none;
+    width: 60px;
+  }
+  
+  .story-steps {
+    gap: 50px;
+  }
+  
+  .story-step.step-left,
+  .story-step.step-right {
+    flex-direction: column;
+    padding-left: 80px;
+    padding-right: 0;
+    justify-content: flex-start;
+  }
+  
+  .story-step.step-left .step-content,
+  .story-step.step-right .step-content {
+    text-align: left;
+  }
+  
+  .story-step.step-left .step-text,
+  .story-step.step-right .step-text {
+    align-items: flex-start;
+  }
+  
+  .step-marker {
+    left: 30px;
+    width: 46px;
+    height: 46px;
+  }
+  
+  .marker-number {
+    font-size: 1rem;
+  }
+  
+  .step-content {
+    max-width: 100%;
+  }
+  
+  .step-image {
+    height: 220px;
+  }
+
+  .story-step:nth-child(3) .step-image,
+  .story-step:nth-child(4) .step-image {
+    height: 260px;
+  }
+  
+  .step-title {
+    font-size: 1.4rem;
+  }
+  
+  .step-description {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .story-section {
+    padding: 50px 15px 60px;
+  }
+
+  .story-subtitle {
+    font-size: 1rem;
+    margin-bottom: 40px;
+    padding: 0 10px;
+  }
+
+  .story-path {
+    left: 20px;
+    width: 40px;
+  }
+
+  .story-step.step-left,
+  .story-step.step-right {
+    padding-left: 60px;
+  }
+
+  .step-marker {
+    left: 20px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .marker-number {
+    font-size: 0.9rem;
+  }
+  
+  .step-image {
+    height: 200px;
+  }
+
+  .story-step:nth-child(3) .step-image,
+  .story-step:nth-child(4) .step-image {
+    height: 240px;
+  }
+  
+  .step-image-container {
+    border-radius: 12px;
+  }
+  
+  .step-title {
+    font-size: 1.25rem;
+  }
+  
+  .step-description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+}
+
+/* Smooth scroll enhancement */
+@media (prefers-reduced-motion: no-preference) {
+  .story-step {
+    will-change: transform, opacity;
+  }
+  
+  .step-image-container {
+    will-change: transform;
+  }
+  
+  .path-progress,
+  .path-dashed {
+    will-change: stroke-dashoffset;
+  }
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .story-step {
+    transition: opacity 0.3s ease;
+    transform: none;
+  }
+  
+  .story-step.visible {
+    opacity: 1;
+  }
+  
+  .marker-pulse {
+    animation: none;
+  }
+  
+  .step-image-container,
+  .step-text {
+    transition: none;
+    transform: none;
+    opacity: 1;
+  }
+}
+
