@@ -9,7 +9,7 @@ const FunCommittee = () => {
   const nasi = [
     {
       id: 1,
-      image: `${process.env.PUBLIC_URL}/resources/fun-committee/nasi/Nasi.png`,
+      image: `${process.env.PUBLIC_URL}/resources/fun-committee/nasi/nasii.png`,
       name: "Iulia si Andrei"
     }
   ];
