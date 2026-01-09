@@ -15,11 +15,6 @@ const LandingPage = () => {
       </div>
       <div className="landing-content">
         <h1 className="landing-title">{t('landing.title')}</h1>
-        <div className="landing-invitation">
-          <p>Iubirea noastră, împărtăşită cu voi!</p>
-          <p>Avem deosebita plăcere de a vă invita să fiți alături de noi în ziua în care sufletele noastre se vor uni.</p>
-          <p>Vă așteptăm cu drag!</p>
-        </div>
       </div>
     </section>
   );
