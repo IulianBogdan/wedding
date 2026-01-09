@@ -1,20 +1,25 @@
 {
   "landing": {
     "title": "Ana & Bogdan",
-    "subtitle": "Dacă ai ajuns aici, înseamnă că e oficial: ești invitat la nunta noastră!"
+    "subtitle": "Dacă ai ajuns aici, înseamnă că e oficial: ești invitat la nunta noastră!",
+    "nameFirst": "ANA",
+    "and": "și",
+    "nameSecond": "BOGDAN",
+    "location": "Pitești, România"
   },
   "nav": {
     "story": "Povestea noastră",
     "schedule": "Program",
     "location": "Locație",
-    "rsvp": "Confirmare"
+    "rsvp": "Confirma prezenta"
   },
   "eventDate": {
     "title": "Ziua cea mare",
     "date": "06.06.2026",
     "days": "Zile",
     "hours": "Ore",
-    "minutes": "Minute"
+    "minutes": "Minute",
+    "seconds": "Secunde"
   },
   "story": {
     "title": "Povestea noastră",

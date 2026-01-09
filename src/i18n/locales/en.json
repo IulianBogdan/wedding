@@ -1,7 +1,11 @@
 {
   "landing": {
     "title": "Ana & Bogdan",
-    "subtitle": "If you've reached this page, you are invited to our awesome wedding"
+    "subtitle": "If you've reached this page, you are invited to our awesome wedding",
+    "nameFirst": "ANA",
+    "and": "and",
+    "nameSecond": "BOGDAN",
+    "location": "Pitești, Romania"
   },
   "nav": {
     "story": "Our Story",
@@ -14,7 +18,8 @@
     "date": "06.06.2026",
     "days": "Days",
     "hours": "Hours",
-    "minutes": "Minutes"
+    "minutes": "Minutes",
+    "seconds": "Seconds"
   },
   "story": {
     "title": "Our Story",

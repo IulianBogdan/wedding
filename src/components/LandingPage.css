@@ -1,12 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Beau+Rivage&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap');
 
 .landing-page {
   position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* Hero Section */
+.landing-hero {
+  position: relative;
+  width: 100%;
+  height: 65vh;
+  min-height: 400px;
   overflow: hidden;
 }
 
@@ -16,117 +24,359 @@
   left: 0;
   width: 100%;
   height: 100%;
-  /* background-image set via inline style in component */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: #f8faf8;
+  background-color: #fafafa;
+  /* Remove grayscale filter - image should be in color */
 }
 
-.landing-overlay {
+.scroll-indicator {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.3);
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  animation: bounce 2s infinite;
+  cursor: pointer;
 }
 
-.landing-content {
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+/* Information Section */
+.landing-info-section {
+  position: relative;
+  width: 100%;
+  background-color: #fafafa;
+  padding: 60px 20px 350px;
+  text-align: center;
+  min-height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Floral Accents */
+.floral-accent-top-left {
+  position: absolute;
+  top: -60px;
+  left: -180px;
+  width: 500px;
+  height: 550px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top left;
+  opacity: 0.7;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.floral-accent-right {
+  position: absolute;
+  right: -150px;
+  top: 70%;
+  transform: translateY(-50%);
+  width: 500px;
+  height: 550px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.7;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.landing-info-content {
   position: relative;
   z-index: 2;
-  text-align: center;
-  color: white;
-  padding: 20px;
   max-width: 800px;
-  font-family: 'Beau Rivage', cursive;
+  margin: 0 auto;
+  width: 100%;
 }
 
-.landing-flowers {
-  position: fixed;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  transform: rotate(-90deg);
-  width: 100vw;
-  object-fit: cover;
+/* Couple Names */
+.couple-names {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
 }
 
-.landing-title {
-  font-size: 5.5rem;
+.name-first,
+.name-second {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.5rem;
   font-weight: 500;
-  margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: #333333;
+  text-transform: uppercase;
   letter-spacing: 2px;
+  line-height: 1.2;
+  margin: 0;
 }
 
-.landing-subtitle {
+.name-connector {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #333333;
+  letter-spacing: 1px;
+}
+
+.landing-location {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #333333;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+}
+
+
+/* RSVP Button */
+.landing-rsvp-button {
+  background-color: #333333;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 1rem 2rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: opacity 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.landing-rsvp-button:hover {
+  opacity: 0.9;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.landing-rsvp-button:active {
+  opacity: 0.8;
+}
+
+/* Countdown Section */
+.landing-countdown {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.countdown-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #333333;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0 0 15px;
+}
+
+.countdown-date {
+  font-family: 'Cormorant Garamond', serif;
   font-size: 2rem;
   font-weight: 400;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-  margin-bottom: 2rem;
+  color: #333333;
+  letter-spacing: 1px;
+  margin: 0 0 30px;
 }
 
-.landing-invitation {
-  text-align: center;
-  font-style: italic;
-  margin-top: 1rem;
+.landing-countdown .countdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 20px;
 }
 
-.landing-invitation p {
-  margin: 0.5rem 0;
-  color: #f8f4f0;
-  text-shadow:
-    0 0 10px rgba(212, 165, 116, 0.3),
-    1px 1px 2px rgba(0, 0, 0, 0.7),
-    0 0 20px rgba(212, 165, 116, 0.2);
-  line-height: 1.6;
-  font-size: 1.1rem;
+.landing-countdown .countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.landing-invitation p:first-child {
-  font-size: 1.8rem;
-  font-weight: 500;
-  margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  letter-spacing: 2px;
+.landing-countdown .countdown-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.5rem;
+  font-weight: 400;
+  color: #333333;
+  line-height: 1;
+  letter-spacing: 1px;
 }
 
-@media (max-width: 768px) {
-  .landing-title {
+.landing-countdown .countdown-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #666666;
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.landing-countdown .countdown-separator {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #333333;
+  line-height: 1;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .landing-hero {
+    height: 60vh;
+  }
+
+  .landing-info-section {
+    padding: 80px 40px 500px;
+    min-height: auto;
+  }
+
+  .name-first,
+  .name-second {
+    font-size: 5rem;
+  }
+
+  .name-connector {
+    font-size: 2rem;
+  }
+
+  .countdown-title {
+    font-size: 3rem;
+  }
+
+  .countdown-date {
+    font-size: 2.5rem;
+  }
+
+  .landing-countdown .countdown-number {
     font-size: 4rem;
   }
 
-  .landing-subtitle {
-    font-size: 1.6rem;
+  .floral-accent-top-left {
+    width: 500px;
+    height: 550px;
+    top: -60px;
+    left: -180px;
   }
 
-  .landing-invitation p {
-    font-size: 1rem;
+  .floral-accent-right {
+    width: 500px;
+    height: 550px;
+    right: -150px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .landing-info-section {
+    padding: 100px 60px 550px;
+    min-height: auto;
   }
 
-  .landing-invitation p:first-child {
-    font-size: 1.4rem;
-    letter-spacing: 2px;
+  .name-first,
+  .name-second {
+    font-size: 5.5rem;
+  }
+
+  .countdown-title {
+    font-size: 3.5rem;
+  }
+
+  .countdown-date {
+    font-size: 3rem;
+  }
+
+  .landing-countdown .countdown-number {
+    font-size: 4.5rem;
   }
 }
 
 @media (max-width: 480px) {
-  .landing-title {
-    font-size: 3rem;
+  .landing-hero {
+    height: 55vh;
+    min-height: 350px;
   }
 
-  .landing-subtitle {
-    font-size: 1.3rem;
+  .landing-info-section {
+    padding: 40px 15px;
   }
 
-  .landing-invitation p {
+  .name-first,
+  .name-second {
+    font-size: 2.5rem;
+  }
+
+  .name-connector {
+    font-size: 1.2rem;
+  }
+
+  .landing-location {
     font-size: 0.9rem;
   }
 
-  .landing-invitation p:first-child {
-    font-size: 1.3rem;
-    letter-spacing: 2px;
+  .landing-rsvp-button {
+    padding: 0.9rem 1.8rem;
+    font-size: 1rem;
+    margin-top: 30px;
+  }
+
+  .spiraling-divider {
+    max-width: 250px;
+    margin: 30px auto;
+  }
+
+  .countdown-title {
+    font-size: 1.8rem;
+  }
+
+  .countdown-date {
+    font-size: 1.5rem;
+  }
+
+  .landing-countdown .countdown {
+    gap: 1rem;
+  }
+
+  .landing-countdown .countdown-number {
+    font-size: 2.5rem;
+  }
+
+  .landing-countdown .countdown-separator {
+    font-size: 1.8rem;
+  }
+
+  .landing-countdown .countdown-label {
+    font-size: 0.75rem;
+  }
+
+  .floral-accent-top-left {
+    width: 200px;
+    height: 220px;
+    top: -30px;
+    left: -60px;
+  }
+
+  .floral-accent-right {
+    width: 180px;
+    height: 200px;
+    right: -40px;
+    top: 60%;
+    transform: none;
   }
 }
 

@@ -1,11 +1,49 @@
 .fun-committee-section {
   padding: 100px 20px;
-  background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+  background: #fafafa;
+  overflow-x: hidden;
 }
 
 .fun-committee-container {
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
+}
+
+/* Floral Accents - Desktop Only */
+.fun-committee-container .floral-accent-top-left,
+.fun-committee-container .floral-accent-right {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .fun-committee-container .floral-accent-top-left,
+  .fun-committee-container .floral-accent-right {
+    display: block;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.4;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .fun-committee-container .floral-accent-top-left {
+    top: -60px;
+    left: -240px;
+    width: 500px;
+    height: 550px;
+    background-position: top left;
+  }
+
+  .fun-committee-container .floral-accent-right {
+    right: -270px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 500px;
+    height: 550px;
+    background-position: center;
+  }
 }
 
 .section-title {
@@ -15,10 +53,14 @@
   color: #333;
   margin-bottom: 30px;
   letter-spacing: 2px;
+  position: relative;
+  z-index: 2;
 }
 
 .committee-row {
   margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
 }
 
 .committee-row:last-child {
@@ -40,6 +82,7 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 30px;
+  width: 100%;
 }
 
 .committee-member {
@@ -104,7 +147,11 @@
 
 @media (max-width: 768px) {
   .fun-committee-section {
-    padding: 60px 20px;
+    padding: 60px 15px;
+  }
+
+  .fun-committee-container {
+    width: 100%;
   }
 
   .row-title {
@@ -114,6 +161,13 @@
 
   .committee-images {
     gap: 20px;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .committee-member {
+    width: 100px;
+    height: 100px;
   }
 
   .image-container {
@@ -123,12 +177,23 @@
 }
 
 @media (max-width: 480px) {
+  .fun-committee-section {
+    padding: 60px 10px;
+  }
+
   .row-title {
     font-size: 1.2rem;
   }
 
   .committee-images {
     gap: 15px;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .committee-member {
+    width: 80px;
+    height: 80px;
   }
 
   .image-container {

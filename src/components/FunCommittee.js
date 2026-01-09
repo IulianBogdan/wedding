@@ -18,7 +18,7 @@ const FunCommittee = () => {
     {
       id: 1,
       image: `${process.env.PUBLIC_URL}/resources/fun-committee/groomsmen/Ovidiu.png`,
-      name: "Ovidiu"
+      name: "Ovi"
     },
     {
       id: 2,
@@ -81,6 +81,16 @@ const FunCommittee = () => {
   return (
     <section className="fun-committee-section">
       <div className="fun-committee-container">
+        {/* Floral accents - desktop only */}
+        <div 
+          className="floral-accent-top-left"
+          style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/resources/landing/flower.png)` }}
+        ></div>
+        <div 
+          className="floral-accent-right"
+          style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/resources/landing/flower.png)` }}
+        ></div>
+        
         <h2 className="section-title">{t('funCommittee.title')}</h2>
 
         <div className="committee-row">

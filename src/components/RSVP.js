@@ -41,64 +41,81 @@ const RSVP = () => {
   return (
     <section className="rsvp-section" id="rsvp">
       <div className="rsvp-container">
-        <h2 className="section-title">{t('rsvp.title')}</h2>
+        {/* Floral accents - desktop only */}
+        <div 
+          className="floral-accent-top-left"
+          style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/resources/landing/flower.png)` }}
+        ></div>
+        <div 
+          className="floral-accent-right"
+          style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/resources/landing/flower.png)` }}
+        ></div>
+        
         <form className="rsvp-form" onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="fullName">{t('rsvp.fullName')} *</label>
-            <input
-              type="text"
-              id="fullName"
-              name="fullName"
-              required
-              placeholder={t('rsvp.fullNamePlaceholder')}
-            />
+          <div className="rsvp-form-header">
+            <h2 className="rsvp-title">{t('rsvp.title')}</h2>
           </div>
-
-          <div className="form-group">
-            <label htmlFor="email">{t('rsvp.email')} *</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-              placeholder={t('rsvp.emailPlaceholder')}
-            />
-          </div>
-
-          <div className="form-group checkbox-group">
-            <label className="checkbox-label">
-              <input
-                type="checkbox"
-                name="hasPartner"
-                checked={hasPartner}
-                onChange={(e) => setHasPartner(e.target.checked)}
-              />
-              <span>{t('rsvp.hasPartner')}</span>
-            </label>
-          </div>
-
-          {hasPartner && (
-            <div className="form-group partner-field">
-              <label htmlFor="partnerName">{t('rsvp.partnerName')} *</label>
+          
+          <div className="rsvp-form-divider"></div>
+          
+          <div className="rsvp-form-body">
+            <div className="form-group">
+              <label htmlFor="fullName">{t('rsvp.fullName')} *</label>
               <input
                 type="text"
-                id="partnerName"
-                name="partnerName"
-                required={hasPartner}
-                placeholder={t('rsvp.partnerNamePlaceholder')}
+                id="fullName"
+                name="fullName"
+                required
+                placeholder={t('rsvp.fullNamePlaceholder')}
               />
             </div>
-          )}
 
-          {submitStatus && (
-            <div className={`submit-status ${submitStatus.type}`}>
-              {submitStatus.message}
+            <div className="form-group">
+              <label htmlFor="email">{t('rsvp.email')} *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder={t('rsvp.emailPlaceholder')}
+              />
             </div>
-          )}
 
-          <button type="submit" className="submit-button" disabled={submitting}>
-            {submitting ? t('rsvp.submitting') : t('rsvp.submit')}
-          </button>
+            <div className="form-group checkbox-group">
+              <label className="checkbox-label">
+                <input
+                  type="checkbox"
+                  name="hasPartner"
+                  checked={hasPartner}
+                  onChange={(e) => setHasPartner(e.target.checked)}
+                />
+                <span>{t('rsvp.hasPartner')}</span>
+              </label>
+            </div>
+
+            {hasPartner && (
+              <div className="form-group partner-field">
+                <label htmlFor="partnerName">{t('rsvp.partnerName')} *</label>
+                <input
+                  type="text"
+                  id="partnerName"
+                  name="partnerName"
+                  required={hasPartner}
+                  placeholder={t('rsvp.partnerNamePlaceholder')}
+                />
+              </div>
+            )}
+
+            {submitStatus && (
+              <div className={`submit-status ${submitStatus.type}`}>
+                {submitStatus.message}
+              </div>
+            )}
+
+            <button type="submit" className="submit-button" disabled={submitting}>
+              {submitting ? t('rsvp.submitting') : t('rsvp.submit')}
+            </button>
+          </div>
         </form>
       </div>
     </section>

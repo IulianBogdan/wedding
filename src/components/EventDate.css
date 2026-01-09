@@ -1,7 +1,7 @@
 .event-date-section {
-  padding: 40px 20px;
+  padding: 80px 20px;
   text-align: center;
-  color: white;
+  background-color: #fafafa;
   position: relative;
   min-height: 400px;
   display: flex;
@@ -9,49 +9,31 @@
   justify-content: center;
 }
 
-.event-date-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.event-date-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 1;
-}
-
 .event-date-container {
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
   position: relative;
-  z-index: 3;
+  z-index: 2;
 }
 
-.event-date-section .section-title {
-  margin-top: 0;
-  margin-bottom: 15px;
-  color: white;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-
-.event-date {
-  font-size: 3.5rem;
-  font-weight: 300;
-  color: white;
-  margin-bottom: 1rem;
+.event-date-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: #333333;
+  margin: 0 0 20px;
   letter-spacing: 2px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+}
+
+.event-date-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 500;
+  color: #333333;
+  margin: 0 0 40px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 .countdown {
@@ -59,6 +41,7 @@
   justify-content: center;
   align-items: center;
   gap: 2rem;
+  margin-top: 30px;
 }
 
 .countdown-item {
@@ -68,60 +51,65 @@
 }
 
 .countdown-number {
+  font-family: 'Cormorant Garamond', serif;
   font-size: 4rem;
-  font-weight: 300;
-  color: white;
+  font-weight: 500;
+  color: #333333;
   line-height: 1;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 1px;
 }
 
 .countdown-label {
+  font-family: 'Cormorant Garamond', serif;
   font-size: 1rem;
-  color: white;
+  font-weight: 300;
+  color: #666666;
   margin-top: 0.5rem;
   text-transform: uppercase;
   letter-spacing: 1px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .countdown-separator {
+  font-family: 'Cormorant Garamond', serif;
   font-size: 3rem;
-  color: white;
-  font-weight: 300;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: 400;
+  color: #333333;
+  line-height: 1;
 }
 
 @media (max-width: 768px) {
   .event-date-section {
-    padding: 30px 20px;
+    padding: 60px 20px;
   }
 
+  .event-date-title {
+    font-size: 2rem;
+  }
 
-  .event-date {
+  .event-date-text {
     font-size: 2.5rem;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   }
 
   .countdown-number {
     font-size: 3rem;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   }
 
   .countdown-separator {
     font-size: 2rem;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   }
 }
 
 @media (max-width: 480px) {
+  .event-date-section {
+    padding: 50px 15px;
+  }
 
-  .event-date {
+  .event-date-title {
+    font-size: 1.8rem;
+  }
+
+  .event-date-text {
     font-size: 2rem;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   }
 
   .countdown {
@@ -130,8 +118,10 @@
 
   .countdown-number {
     font-size: 2.5rem;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .countdown-separator {
+    font-size: 1.5rem;
   }
 
   .countdown-label {

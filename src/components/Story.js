@@ -16,7 +16,9 @@ const Story = () => {
   const { t } = useTranslation();
   const [visibleSteps, setVisibleSteps] = useState(new Set());
   const [pathProgress, setPathProgress] = useState(0);
+  const [imageColorProgress, setImageColorProgress] = useState({});
   const stepRefs = useRef([]);
+  const imageRefs = useRef([]);
 
   // Map step numbers to custom labels
   const getStepLabel = (stepId) => {
@@ -88,9 +90,53 @@ const Story = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      imageRefs.current.forEach((ref, index) => {
+        if (!ref) return;
+        
+        const rect = ref.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        const elementTop = rect.top;
+        const elementHeight = rect.height;
+        const elementBottom = elementTop + elementHeight;
+        
+        // Calculate how much of the image is visible
+        const visibleTop = Math.max(0, windowHeight - elementTop);
+        const visibleBottom = Math.max(0, elementBottom);
+        const visibleHeight = Math.min(visibleTop, visibleBottom, elementHeight, windowHeight);
+        
+        // Only start transition when 50% of image height is visible
+        const halfHeight = elementHeight * 0.5;
+        const progress = visibleHeight >= halfHeight 
+          ? Math.max(0, Math.min(1, (visibleHeight - halfHeight) / halfHeight))
+          : 0;
+        
+        setImageColorProgress((prev) => ({
+          ...prev,
+          [index]: progress
+        }));
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <section className="story-section" id="story" ref={sectionRef}>
       <div className="story-container">
+        {/* Floral accents - desktop only */}
+        <div 
+          className="floral-accent-top-left"
+          style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/resources/landing/flower.png)` }}
+        ></div>
+        <div 
+          className="floral-accent-right"
+          style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/resources/landing/flower.png)` }}
+        ></div>
+        
         <h2 className="section-title">{t('story.title')}</h2>
         <p className="story-subtitle">{t('story.subtitle')}</p>
         
@@ -99,9 +145,9 @@ const Story = () => {
           <svg className="story-path" viewBox="0 0 100 1400" preserveAspectRatio="none">
             <defs>
               <linearGradient id="pathGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#d4a574" />
-                <stop offset="50%" stopColor="#c9958a" />
-                <stop offset="100%" stopColor="#b8860b" />
+                <stop offset="0%" stopColor="#b0b0b0" />
+                <stop offset="50%" stopColor="#b0b0b0" />
+                <stop offset="100%" stopColor="#b0b0b0" />
               </linearGradient>
               <filter id="glow">
                 <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
@@ -124,8 +170,8 @@ const Story = () => {
                  Q20 1100 50 1200
                  Q80 1300 50 1400"
               fill="none"
-              stroke="rgba(212, 165, 116, 0.15)"
-              strokeWidth="4"
+              stroke="#b0b0b0"
+              strokeWidth="3"
             />
             
             {/* Animated progress path */}
@@ -141,7 +187,7 @@ const Story = () => {
                  Q80 1300 50 1400"
               fill="none"
               stroke="url(#pathGradient)"
-              strokeWidth="3"
+              strokeWidth="2"
               strokeLinecap="round"
               filter="url(#glow)"
               style={{
@@ -162,7 +208,7 @@ const Story = () => {
                  Q20 1100 50 1200
                  Q80 1300 50 1400"
               fill="none"
-              stroke="rgba(255,255,255,0.6)"
+              stroke="rgba(255,255,255,0.2)"
               strokeWidth="1"
               strokeDasharray="8 12"
               style={{
@@ -186,7 +232,15 @@ const Story = () => {
                 
                 <div className="step-content">
                   <div className="step-image-container">
-                    <img src={step.image} alt={t(step.titleKey)} className="step-image" />
+                    <img 
+                      src={step.image} 
+                      alt={t(step.titleKey)} 
+                      className="step-image"
+                      ref={(el) => (imageRefs.current[index] = el)}
+                      style={{
+                        filter: `grayscale(${100 - (imageColorProgress[index] || 0) * 100}%)`
+                      }}
+                    />
                     <div className="image-overlay"></div>
                   </div>
                   <div className="step-text">

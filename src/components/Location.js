@@ -11,6 +11,12 @@ const Location = () => {
   return (
     <section className="location-section" id="location">
       <div className="location-container">
+        {/* Floral accents - desktop only */}
+        <div
+          className="floral-accent-right"
+          style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/resources/landing/flower.png)` }}
+        ></div>
+        
         <h2 className="section-title">{t('location.title')}</h2>
         <div className="location-content">
           <div className="location-text">

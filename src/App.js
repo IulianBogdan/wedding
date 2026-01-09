@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import LandingPage from './components/LandingPage';
 import Navigation from './components/Navigation';
-import EventDate from './components/EventDate';
 import Story from './components/Story';
 import Schedule from './components/Schedule';
 import FunCommittee from './components/FunCommittee';
@@ -10,7 +9,6 @@ import Location from './components/Location';
 import RSVP from './components/RSVP';
 
 function App() {
-  const [showNav, setShowNav] = useState(false);
   const [showSplash, setShowSplash] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
   const [textFadeOut, setTextFadeOut] = useState(false);
@@ -55,24 +53,13 @@ function App() {
     };
   }, []);
 
-  useEffect(() => {
-    if (!showSplash) {
-      const handleScroll = () => {
-        const landingHeight = window.innerHeight;
-        setShowNav(window.scrollY > landingHeight * 0.8);
-      };
-
-      window.addEventListener('scroll', handleScroll);
-      return () => window.removeEventListener('scroll', handleScroll);
-    }
-  }, [showSplash]);
+  // Navigation is now always visible as hamburger menu, no scroll detection needed
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const offset = showNav ? 80 : 0;
       const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      const offsetPosition = elementPosition + window.pageYOffset;
 
       window.scrollTo({
         top: offsetPosition,
@@ -103,14 +90,13 @@ function App() {
       )}
       {showContent && (
         <div className={`App ${imageLoaded ? 'fade-in' : ''}`}>
+          <Navigation scrollToSection={scrollToSection} />
           <LandingPage />
-          <Navigation showNav={showNav} scrollToSection={scrollToSection} />
-          <EventDate />
           <Story />
           <Schedule />
           <FunCommittee />
-          <Location />
           <RSVP />
+          <Location />
         </div>
       )}
     </>

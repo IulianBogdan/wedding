@@ -1,33 +1,76 @@
 .location-section {
   padding: 100px 20px;
-  background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+  background: #fafafa;
+  overflow-x: hidden;
 }
 
 .location-container {
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
+}
+
+/* Floral Accents - Desktop Only */
+.location-container .floral-accent-top-left,
+.location-container .floral-accent-right {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .location-container .floral-accent-top-left,
+  .location-container .floral-accent-right {
+    display: block;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.4;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .location-container .floral-accent-top-left {
+    top: -60px;
+    left: -180px;
+    width: 500px;
+    height: 550px;
+    background-position: top left;
+  }
+
+  .location-container .floral-accent-right {
+    right: -200px;
+    top: 40%;
+    transform: translateY(-50%);
+    width: 500px;
+    height: 550px;
+    background-position: center;
+  }
 }
 
 .section-title {
   text-align: center;
-  font-size: 3rem;
-  font-weight: 300;
+  font-size: 4rem;
+  font-weight: 500;
   color: #333;
   margin-bottom: 60px;
   letter-spacing: 2px;
+  position: relative;
+  z-index: 2;
 }
 
 .location-content {
   display: flex;
   flex-direction: column;
   gap: 40px;
+  position: relative;
+  z-index: 2;
 }
 
 .location-text {
   text-align: center;
   color: #666;
+  font-weight: 600;
   line-height: 1.8;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   max-width: 800px;
   margin: 0 auto;
 }
@@ -49,13 +92,13 @@
 }
 
 .directions-link {
-  color: #d4a574;
+  color: #333333;
   text-decoration: underline;
   transition: color 0.3s ease;
 }
 
 .directions-link:hover {
-  color: #b8956a;
+  color: #333333;
 }
 
 .link-separator {
@@ -64,15 +107,18 @@
 
 .location-map {
   width: 100%;
-  border-radius: 15px;
+  border-radius: 0;
+  border: 1px solid #eaeaea;
+  position: relative;
+  z-index: 2;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 30px rgba(0, 0, 0, 0.10);
 }
 
 .location-map iframe {
   display: block;
   width: 100%;
-  border-radius: 15px;
+  border-radius: 0;
 }
 
 @media (max-width: 768px) {
@@ -81,7 +127,7 @@
   }
 
   .section-title {
-    font-size: 2.5rem;
+    font-size: 4rem;
     margin-bottom: 40px;
   }
 

@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import './EventDate.css';
 
 const padZero = (num) => String(num).padStart(2, '0');
 
 const EventDate = () => {
+  const { t } = useTranslation();
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0 });
 
   useEffect(() => {
@@ -29,30 +31,24 @@ const EventDate = () => {
   }, []);
 
   return (
-    <section className="event-date-section">
-      <div
-        className="event-date-background"
-        style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/resources/event-date/background.jpg)` }}
-      >
-        <div className="event-date-overlay"></div>
-      </div>
+    <section className="event-date-section" id="event-date">
       <div className="event-date-container">
-        <h2 className="section-title">The Big Day</h2>
-        <p className="event-date">06.06.2026</p>
+        <h2 className="event-date-title">{t('eventDate.title')}</h2>
+        <p className="event-date-text">{t('eventDate.date')}</p>
         <div className="countdown">
           <div className="countdown-item">
             <span className="countdown-number">{timeLeft.days}</span>
-            <span className="countdown-label">Days</span>
+            <span className="countdown-label">{t('eventDate.days')}</span>
           </div>
           <div className="countdown-separator">:</div>
           <div className="countdown-item">
             <span className="countdown-number">{padZero(timeLeft.hours)}</span>
-            <span className="countdown-label">Hours</span>
+            <span className="countdown-label">{t('eventDate.hours')}</span>
           </div>
           <div className="countdown-separator">:</div>
           <div className="countdown-item">
             <span className="countdown-number">{padZero(timeLeft.minutes)}</span>
-            <span className="countdown-label">Minutes</span>
+            <span className="countdown-label">{t('eventDate.minutes')}</span>
           </div>
         </div>
       </div>
