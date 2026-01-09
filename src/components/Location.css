@@ -108,7 +108,7 @@
 .location-map {
   width: 100%;
   border-radius: 0;
-  border: 1px solid #eaeaea;
+  border: 1px solid #242424;
   position: relative;
   z-index: 2;
   overflow: hidden;
