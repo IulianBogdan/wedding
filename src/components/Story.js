@@ -127,16 +127,6 @@ const Story = () => {
   return (
     <section className="story-section" id="story" ref={sectionRef}>
       <div className="story-container">
-        {/* Floral accents - desktop only */}
-        <div 
-          className="floral-accent-top-left"
-          style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/resources/landing/flower.png)` }}
-        ></div>
-        <div 
-          className="floral-accent-right"
-          style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/resources/landing/flower.png)` }}
-        ></div>
-        
         <h2 className="section-title">{t('story.title')}</h2>
         <p className="story-subtitle">{t('story.subtitle')}</p>
         

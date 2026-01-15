@@ -10,50 +10,31 @@ import RSVP from './components/RSVP';
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
-  const [fadeOut, setFadeOut] = useState(false);
-  const [textFadeOut, setTextFadeOut] = useState(false);
-  const [imageLoaded, setImageLoaded] = useState(false);
-  const [showContent, setShowContent] = useState(false);
+  const [textVisible, setTextVisible] = useState(false);
+  const [splashFadeOut, setSplashFadeOut] = useState(false);
 
   useEffect(() => {
-    // Preload the landing page background image
-    const img = new Image();
-    img.src = `${process.env.PUBLIC_URL}/resources/landing/background.jpg`;
-    img.onload = () => {
-      setImageLoaded(true);
-    };
-    img.onerror = () => {
-      // Even if image fails to load, proceed after a short delay
-      setTimeout(() => setImageLoaded(true), 100);
-    };
-  }, []);
+    // Text fades in immediately with a small delay for the page to load
+    const textFadeInTimer = setTimeout(() => {
+      setTextVisible(true);
+    }, 100);
 
-  useEffect(() => {
-    // Start text fade-out at 3 seconds
-    const textFadeTimer = setTimeout(() => {
-      setTextFadeOut(true);
-    }, 3000);
+    // After 3 seconds of text being visible, start splash fade out
+    const fadeOutTimer = setTimeout(() => {
+      setSplashFadeOut(true);
+    }, 3300);
 
-    // Start splash screen fade-out after text fades out (1.2s later)
-    const fadeTimer = setTimeout(() => {
-      setFadeOut(true);
-      // Start showing content slightly before splash finishes (overlap transition)
-      setShowContent(true);
-    }, 4200);
-
-    // Hide splash screen completely after fade-out animation completes (1.5s)
-    const hideTimer = setTimeout(() => {
+    // Remove splash from DOM after fade out completes (2s fade-out)
+    const removeSplashTimer = setTimeout(() => {
       setShowSplash(false);
-    }, 5700);
+    }, 5300);
 
     return () => {
-      clearTimeout(textFadeTimer);
-      clearTimeout(fadeTimer);
-      clearTimeout(hideTimer);
+      clearTimeout(textFadeInTimer);
+      clearTimeout(fadeOutTimer);
+      clearTimeout(removeSplashTimer);
     };
   }, []);
-
-  // Navigation is now always visible as hamburger menu, no scroll detection needed
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -70,33 +51,117 @@ function App() {
 
   return (
     <>
-      {showSplash && (
-        <div className={`splash-screen ${fadeOut ? 'fade-out' : ''}`}>
-          <div className="splash-content">
-            <div className="splash-frame">
-              <img 
-                src={`${process.env.PUBLIC_URL}/resources/landing/flowers-frame-loading.png`}
-                alt="Floral frame"
-                className={`splash-frame-image ${textFadeOut ? 'text-fade-out' : ''}`}
-              />
-              <p className={`splash-text ${textFadeOut ? 'text-fade-out' : ''}`}>
-                <span>
-                  Dacă ai ajuns aici, înseamnă că e oficial: ești invitat la nunta noastră!
-                </span>
-              </p>
-            </div>
-          </div>
+      {/* Main content is always rendered behind splash */}
+      <div className="App">
+        <Navigation scrollToSection={scrollToSection} />
+        <LandingPage />
+        
+        {/* Gypso pair - Landing to Story */}
+        <div className="gypso-divider gypso-left">
+          <img 
+            src={`${process.env.PUBLIC_URL}/resources/common/gypso-left-top.png`}
+            alt=""
+          />
         </div>
-      )}
-      {showContent && (
-        <div className={`App ${imageLoaded ? 'fade-in' : ''}`}>
-          <Navigation scrollToSection={scrollToSection} />
-          <LandingPage />
-          <Story />
-          <Schedule />
-          <FunCommittee />
-          <RSVP />
-          <Location />
+        <div className="gypso-divider gypso-right">
+          <img 
+            src={`${process.env.PUBLIC_URL}/resources/common/gypso-right-bottom.png`}
+            alt=""
+          />
+        </div>
+        
+        <Story />
+        
+        {/* Gypso pair - Story to Schedule */}
+        <div className="gypso-divider gypso-right">
+          <img 
+            src={`${process.env.PUBLIC_URL}/resources/common/gypso-right-top.png`}
+            alt=""
+          />
+        </div>
+        <div className="gypso-divider gypso-left">
+          <img 
+            src={`${process.env.PUBLIC_URL}/resources/common/gypso-left-bottom.png`}
+            alt=""
+          />
+        </div>
+        
+        <Schedule />
+        
+        {/* Gypso pair - Schedule to FunCommittee */}
+        <div className="gypso-divider gypso-left">
+          <img 
+            src={`${process.env.PUBLIC_URL}/resources/common/gypso-left-top.png`}
+            alt=""
+          />
+        </div>
+        <div className="gypso-divider gypso-right">
+          <img 
+            src={`${process.env.PUBLIC_URL}/resources/common/gypso-right-bottom.png`}
+            alt=""
+          />
+        </div>
+        
+        <FunCommittee />
+        
+        {/* Gypso pair - FunCommittee to RSVP */}
+        <div className="gypso-divider gypso-right">
+          <img 
+            src={`${process.env.PUBLIC_URL}/resources/common/gypso-right-top.png`}
+            alt=""
+          />
+        </div>
+        <div className="gypso-divider gypso-left">
+          <img 
+            src={`${process.env.PUBLIC_URL}/resources/common/gypso-left-bottom.png`}
+            alt=""
+          />
+        </div>
+        
+        <RSVP />
+        
+        {/* Gypso pair - RSVP to Location */}
+        <div className="gypso-divider gypso-left">
+          <img 
+            src={`${process.env.PUBLIC_URL}/resources/common/gypso-left-top.png`}
+            alt=""
+          />
+        </div>
+        <div className="gypso-divider gypso-right">
+          <img 
+            src={`${process.env.PUBLIC_URL}/resources/common/gypso-right-bottom.png`}
+            alt=""
+          />
+        </div>
+        
+        <Location />
+        
+        {/* Gypso pair - Footer */}
+        <div className="gypso-divider gypso-right">
+          <img 
+            src={`${process.env.PUBLIC_URL}/resources/common/gypso-right-top.png`}
+            alt=""
+          />
+        </div>
+        <div className="gypso-divider gypso-left">
+          <img 
+            src={`${process.env.PUBLIC_URL}/resources/common/gypso-left-bottom.png`}
+            alt=""
+          />
+        </div>
+      </div>
+
+      {/* Splash screen overlay */}
+      {showSplash && (
+        <div className={`splash-screen ${splashFadeOut ? 'fade-out' : ''}`}>
+          <img 
+            src={`${process.env.PUBLIC_URL}/resources/common/splash-backgound.png`}
+            alt="Splash background"
+            className="splash-background"
+          />
+          <p className={`splash-text ${textVisible ? 'visible' : ''}`}>
+            Dacă ai ajuns aici, înseamnă că e oficial: ești invitat la nunta noastră!
+          </p>
         </div>
       )}
     </>

@@ -1,5 +1,5 @@
 .story-section {
-  padding: 100px 20px 120px;
+  padding: 100px 20px 50px;
   background: #fafafa;
   position: relative;
   overflow-x: hidden;
@@ -336,7 +336,7 @@
 
 @media (max-width: 768px) {
   .story-section {
-    padding: 60px 20px 80px;
+    padding: 60px 20px 50px;
   }
   
   .story-subtitle {
@@ -406,7 +406,7 @@
 
 @media (max-width: 480px) {
   .story-section {
-    padding: 50px 15px 60px;
+    padding: 50px 15px 50px;
   }
 
   .story-subtitle {

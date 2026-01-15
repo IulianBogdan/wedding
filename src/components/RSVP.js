@@ -5,6 +5,10 @@ import './RSVP.css';
 const RSVP = () => {
   const { t } = useTranslation();
   const [hasPartner, setHasPartner] = useState(false);
+  const [vegetarianMenu, setVegetarianMenu] = useState(false);
+  const [hasAllergens, setHasAllergens] = useState(false);
+  const [partnerVegetarianMenu, setPartnerVegetarianMenu] = useState(false);
+  const [partnerHasAllergens, setPartnerHasAllergens] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
 
@@ -28,6 +32,10 @@ const RSVP = () => {
         setSubmitStatus({ type: 'success', message: t('rsvp.successMessage') });
         e.target.reset();
         setHasPartner(false);
+        setVegetarianMenu(false);
+        setHasAllergens(false);
+        setPartnerVegetarianMenu(false);
+        setPartnerHasAllergens(false);
       } else {
         setSubmitStatus({ type: 'error', message: t('rsvp.errorMessage') });
       }
@@ -41,16 +49,6 @@ const RSVP = () => {
   return (
     <section className="rsvp-section" id="rsvp">
       <div className="rsvp-container">
-        {/* Floral accents - desktop only */}
-        <div 
-          className="floral-accent-top-left"
-          style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/resources/landing/flower.png)` }}
-        ></div>
-        <div 
-          className="floral-accent-right"
-          style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/resources/landing/flower.png)` }}
-        ></div>
-        
         <form className="rsvp-form" onSubmit={handleSubmit}>
           <div className="rsvp-form-header">
             <h2 className="rsvp-title">{t('rsvp.title')}</h2>
@@ -85,6 +83,40 @@ const RSVP = () => {
               <label className="checkbox-label">
                 <input
                   type="checkbox"
+                  name="vegetarianMenu"
+                  checked={vegetarianMenu}
+                  onChange={(e) => setVegetarianMenu(e.target.checked)}
+                />
+                <span>Meniu vegetarian</span>
+              </label>
+            </div>
+
+            <div className="form-group checkbox-group">
+              <label className="checkbox-label">
+                <input
+                  type="checkbox"
+                  name="hasAllergens"
+                  checked={hasAllergens}
+                  onChange={(e) => setHasAllergens(e.target.checked)}
+                />
+                <span>Alergeni</span>
+              </label>
+            </div>
+
+            {hasAllergens && (
+              <div className="form-group partner-field">
+                <input
+                  type="text"
+                  name="allergens"
+                  placeholder="Specificați alergenii..."
+                />
+              </div>
+            )}
+
+            <div className="form-group checkbox-group">
+              <label className="checkbox-label">
+                <input
+                  type="checkbox"
                   name="hasPartner"
                   checked={hasPartner}
                   onChange={(e) => setHasPartner(e.target.checked)}
@@ -103,6 +135,37 @@ const RSVP = () => {
                   required={hasPartner}
                   placeholder={t('rsvp.partnerNamePlaceholder')}
                 />
+                <div className="nested-checkbox">
+                  <label className="checkbox-label">
+                    <input
+                      type="checkbox"
+                      name="partnerVegetarianMenu"
+                      checked={partnerVegetarianMenu}
+                      onChange={(e) => setPartnerVegetarianMenu(e.target.checked)}
+                    />
+                    <span>Meniu vegetarian</span>
+                  </label>
+                </div>
+                <div className="nested-checkbox">
+                  <label className="checkbox-label">
+                    <input
+                      type="checkbox"
+                      name="partnerHasAllergens"
+                      checked={partnerHasAllergens}
+                      onChange={(e) => setPartnerHasAllergens(e.target.checked)}
+                    />
+                    <span>Alergeni</span>
+                  </label>
+                </div>
+                {partnerHasAllergens && (
+                  <div className="nested-field">
+                    <input
+                      type="text"
+                      name="partnerAllergens"
+                      placeholder="Specificați alergenii..."
+                    />
+                  </div>
+                )}
               </div>
             )}
 

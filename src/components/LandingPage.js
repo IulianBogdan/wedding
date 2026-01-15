@@ -7,6 +7,16 @@ const padZero = (num) => String(num).padStart(2, '0');
 const LandingPage = () => {
   const { t } = useTranslation();
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     const calculateTimeLeft = () => {
@@ -31,13 +41,17 @@ const LandingPage = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const backgroundImage = isMobile 
+    ? `${process.env.PUBLIC_URL}/resources/landing/background-small.jpg`
+    : `${process.env.PUBLIC_URL}/resources/landing/background-scaled.jpg`;
+
   return (
     <section className="landing-page" id="home">
       {/* Hero Section */}
       <div className="landing-hero">
         <div 
           className="landing-background"
-          style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/resources/landing/background.jpg)` }}
+          style={{ backgroundImage: `url(${backgroundImage})` }}
         >
           <div className="scroll-indicator">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -49,39 +63,7 @@ const LandingPage = () => {
 
       {/* Information Section */}
       <div className="landing-info-section">
-        {/* Floral illustration - top left */}
-        <div 
-          className="floral-accent-top-left"
-          style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/resources/landing/flower.png)` }}
-        ></div>
-        
-        {/* Floral illustration - right side */}
-        <div 
-          className="floral-accent-right"
-          style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/resources/landing/flower.png)` }}
-        ></div>
-
         <div className="landing-info-content">
-          {/* Couple Names */}
-          <div className="couple-names">
-            <h1 className="name-first">{t('landing.nameFirst')}</h1>
-            <span className="name-connector">&</span>
-            <h1 className="name-second">{t('landing.nameSecond')}</h1>
-          </div>
-
-          {/* RSVP Button */}
-          <button 
-            className="landing-rsvp-button"
-            onClick={() => {
-              const rsvpSection = document.getElementById('rsvp');
-              if (rsvpSection) {
-                rsvpSection.scrollIntoView({ behavior: 'smooth' });
-              }
-            }}
-          >
-            {t('nav.rsvp')}
-          </button>
-
           {/* Countdown Section */}
           <div className="landing-countdown">
             <h2 className="countdown-title">{t('eventDate.title')}</h2>

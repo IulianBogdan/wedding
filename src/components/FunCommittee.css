@@ -2,6 +2,7 @@
   padding: 100px 20px;
   background: #fafafa;
   overflow-x: hidden;
+  position: relative;
 }
 
 .fun-committee-container {

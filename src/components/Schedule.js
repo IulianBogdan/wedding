@@ -46,52 +46,52 @@ const Schedule = () => {
     {
       time: '17:00',
       titleKey: 'schedule.events.civilCeremony',
-      image: `${process.env.PUBLIC_URL}/resources/schedule/icons/civil-ceremony.png`
+      image: `${process.env.PUBLIC_URL}/resources/schedule/icons/1.png`
     },
     {
       time: '17:15',
       titleKey: 'schedule.events.religiousCeremony',
-      image: `${process.env.PUBLIC_URL}/resources/schedule/icons/religious-ceremony.png`
+      image: `${process.env.PUBLIC_URL}/resources/schedule/icons/2.png`
     },
     {
       time: '18:00',
       titleKey: 'schedule.events.picturesSnacks',
-      image: `${process.env.PUBLIC_URL}/resources/schedule/icons/pictures-snacks.png`
+      image: `${process.env.PUBLIC_URL}/resources/schedule/icons/3.png`
     },
     {
       time: '19:00',
       titleKey: 'schedule.events.welcomeDrinks',
-      image: `${process.env.PUBLIC_URL}/resources/schedule/icons/welcome-drinks.png`
+      image: `${process.env.PUBLIC_URL}/resources/schedule/icons/4.png`
     },
     {
       time: '20:00',
       titleKey: 'schedule.events.firstDance',
-      image: `${process.env.PUBLIC_URL}/resources/schedule/icons/first-dance.png`
+      image: `${process.env.PUBLIC_URL}/resources/schedule/icons/5.png`
     },
     {
       time: '21:00',
       titleKey: 'schedule.events.entree',
-      image: `${process.env.PUBLIC_URL}/resources/schedule/icons/entree.png`
+      image: `${process.env.PUBLIC_URL}/resources/schedule/icons/6.png`
     },
     {
       time: '23:00',
       titleKey: 'schedule.events.firstCourse',
-      image: `${process.env.PUBLIC_URL}/resources/schedule/icons/first-course.png`
+      image: `${process.env.PUBLIC_URL}/resources/schedule/icons/6.png`
     },
     {
       time: '00:00',
       titleKey: 'schedule.events.cakeFireworks',
-      image: `${process.env.PUBLIC_URL}/resources/schedule/icons/cake-fireworks.png`
+      image: `${process.env.PUBLIC_URL}/resources/schedule/icons/8.png`
     },
     {
       time: '01:00',
       titleKey: 'schedule.events.secondCourse',
-      image: `${process.env.PUBLIC_URL}/resources/schedule/icons/second-course.png`
+      image: `${process.env.PUBLIC_URL}/resources/schedule/icons/6.png`
     },
     {
       time: '01:30 - 05:00',
       titleKey: 'schedule.events.danceTillDawn',
-      image: `${process.env.PUBLIC_URL}/resources/schedule/icons/dance-till-dawn.png`
+      image: `${process.env.PUBLIC_URL}/resources/schedule/icons/10.png`
     }
   ];
 
@@ -122,16 +122,6 @@ const Schedule = () => {
   return (
     <section className="schedule-section" id="schedule">
       <div className="schedule-container">
-        {/* Floral accents - desktop only */}
-        <div 
-          className="floral-accent-top-left"
-          style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/resources/landing/flower.png)` }}
-        ></div>
-        <div 
-          className="floral-accent-right"
-          style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/resources/landing/flower.png)` }}
-        ></div>
-        
         <h2 className="section-title">{t('schedule.title')}</h2>
         
         <div className="timeline-vertical">

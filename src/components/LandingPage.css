@@ -6,7 +6,6 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
 }
 
 /* Hero Section */
@@ -15,7 +14,6 @@
   width: 100%;
   height: 65vh;
   min-height: 400px;
-  overflow: hidden;
 }
 
 .landing-background {
@@ -28,8 +26,8 @@
   background-position: center;
   background-repeat: no-repeat;
   background-color: #fafafa;
-  /* Remove grayscale filter - image should be in color */
 }
+
 
 .scroll-indicator {
   position: absolute;
@@ -58,7 +56,7 @@
   position: relative;
   width: 100%;
   background-color: #fafafa;
-  padding: 60px 20px 350px;
+  padding: 18px 6px 50px;
   text-align: center;
   min-height: auto;
   display: flex;
@@ -242,8 +240,12 @@
     height: 60vh;
   }
 
+  .landing-background {
+    background-position: center 32%;
+  }
+
   .landing-info-section {
-    padding: 80px 40px 500px;
+    padding: 24px 12px 50px;
     min-height: auto;
   }
 
@@ -283,8 +285,12 @@
 }
 
 @media (min-width: 1024px) {
+  .landing-background {
+    background-position: center 32%;
+  }
+
   .landing-info-section {
-    padding: 100px 60px 550px;
+    padding: 30px 18px 50px;
     min-height: auto;
   }
 
@@ -313,7 +319,7 @@
   }
 
   .landing-info-section {
-    padding: 40px 15px;
+    padding: 12px 5px 50px;
   }
 
   .name-first,
