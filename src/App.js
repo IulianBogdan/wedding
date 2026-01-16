@@ -14,22 +14,30 @@ function App() {
   const [textVisible, setTextVisible] = useState(false);
   const [splashFadeOut, setSplashFadeOut] = useState(false);
 
-  // Preload splash images before showing anything
+  // Preload both splash images before showing anything
   useEffect(() => {
-    const isSmallScreen = window.innerWidth <= 768;
-    const imageSrc = isSmallScreen 
-      ? `${process.env.PUBLIC_URL}/resources/common/splash-background-small.png`
-      : `${process.env.PUBLIC_URL}/resources/common/splash-background.png`;
+    const largeImageSrc = `${process.env.PUBLIC_URL}/resources/common/splash-background.png`;
+    const smallImageSrc = `${process.env.PUBLIC_URL}/resources/common/splash-background-small.png`;
     
-    const img = new Image();
-    img.onload = () => {
-      setSplashImageLoaded(true);
+    let loadedCount = 0;
+    const totalImages = 2;
+    
+    const onImageLoad = () => {
+      loadedCount++;
+      if (loadedCount >= totalImages) {
+        setSplashImageLoaded(true);
+      }
     };
-    img.onerror = () => {
-      // Still show content even if image fails to load
-      setSplashImageLoaded(true);
-    };
-    img.src = imageSrc;
+    
+    const largeImg = new Image();
+    largeImg.onload = onImageLoad;
+    largeImg.onerror = onImageLoad; // Count errors as loaded to not block forever
+    largeImg.src = largeImageSrc;
+    
+    const smallImg = new Image();
+    smallImg.onload = onImageLoad;
+    smallImg.onerror = onImageLoad;
+    smallImg.src = smallImageSrc;
   }, []);
 
   // Start splash sequence only after image is loaded
