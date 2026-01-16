@@ -154,11 +154,17 @@ function App() {
       {/* Splash screen overlay */}
       {showSplash && (
         <div className={`splash-screen ${splashFadeOut ? 'fade-out' : ''}`}>
-          <img 
-            src={`${process.env.PUBLIC_URL}/resources/common/test.png`}
-            alt="Splash background"
-            className="splash-background"
-          />
+          <picture>
+            <source 
+              media="(max-width: 768px)" 
+              srcSet={`${process.env.PUBLIC_URL}/resources/common/test-small.png`}
+            />
+            <img 
+              src={`${process.env.PUBLIC_URL}/resources/common/test.png`}
+              alt="Splash background"
+              className="splash-background"
+            />
+          </picture>
           <p className={`splash-text ${textVisible ? 'visible' : ''}`}>
             Dacă ai ajuns aici, înseamnă că e oficial: ești invitat la nunta noastră!
           </p>
