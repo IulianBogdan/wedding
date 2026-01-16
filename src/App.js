@@ -9,12 +9,34 @@ import Location from './components/Location';
 import RSVP from './components/RSVP';
 
 function App() {
+  const [splashImageLoaded, setSplashImageLoaded] = useState(false);
   const [showSplash, setShowSplash] = useState(true);
   const [textVisible, setTextVisible] = useState(false);
   const [splashFadeOut, setSplashFadeOut] = useState(false);
 
+  // Preload splash images before showing anything
   useEffect(() => {
-    // Text fades in immediately with a small delay for the page to load
+    const isSmallScreen = window.innerWidth <= 768;
+    const imageSrc = isSmallScreen 
+      ? `${process.env.PUBLIC_URL}/resources/common/splash-background-small.png`
+      : `${process.env.PUBLIC_URL}/resources/common/splash-background.png`;
+    
+    const img = new Image();
+    img.onload = () => {
+      setSplashImageLoaded(true);
+    };
+    img.onerror = () => {
+      // Still show content even if image fails to load
+      setSplashImageLoaded(true);
+    };
+    img.src = imageSrc;
+  }, []);
+
+  // Start splash sequence only after image is loaded
+  useEffect(() => {
+    if (!splashImageLoaded) return;
+
+    // Text fades in shortly after splash appears
     const textFadeInTimer = setTimeout(() => {
       setTextVisible(true);
     }, 100);
@@ -34,7 +56,7 @@ function App() {
       clearTimeout(fadeOutTimer);
       clearTimeout(removeSplashTimer);
     };
-  }, []);
+  }, [splashImageLoaded]);
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -151,16 +173,21 @@ function App() {
         </div>
       </div>
 
+      {/* Initial blank screen - shows until splash image is loaded */}
+      {!splashImageLoaded && (
+        <div className="initial-blank-screen" />
+      )}
+
       {/* Splash screen overlay */}
-      {showSplash && (
+      {showSplash && splashImageLoaded && (
         <div className={`splash-screen ${splashFadeOut ? 'fade-out' : ''}`}>
           <picture>
             <source 
               media="(max-width: 768px)" 
-              srcSet={`${process.env.PUBLIC_URL}/resources/common/test-small.png`}
+              srcSet={`${process.env.PUBLIC_URL}/resources/common/splash-background-small.png`}
             />
             <img 
-              src={`${process.env.PUBLIC_URL}/resources/common/test.png`}
+              src={`${process.env.PUBLIC_URL}/resources/common/splash-background.png`}
               alt="Splash background"
               className="splash-background"
             />

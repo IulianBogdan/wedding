@@ -76,6 +76,17 @@
   }
 }
 
+/* ==================== INITIAL BLANK SCREEN ==================== */
+.initial-blank-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #fff;
+  z-index: 10000;
+}
+
 /* ==================== SPLASH SCREEN ==================== */
 .splash-screen {
   position: fixed;
