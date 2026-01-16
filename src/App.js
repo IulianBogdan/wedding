@@ -155,7 +155,7 @@ function App() {
       {showSplash && (
         <div className={`splash-screen ${splashFadeOut ? 'fade-out' : ''}`}>
           <img 
-            src={`${process.env.PUBLIC_URL}/resources/common/splash-backgound.png`}
+            src={`${process.env.PUBLIC_URL}/resources/common/test.png`}
             alt="Splash background"
             className="splash-background"
           />
