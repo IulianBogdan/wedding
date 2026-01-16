@@ -16,8 +16,8 @@ function App() {
 
   // Preload both splash images before showing anything
   useEffect(() => {
-    const largeImageSrc = `${process.env.PUBLIC_URL}/resources/common/splash-background.png`;
-    const smallImageSrc = `${process.env.PUBLIC_URL}/resources/common/splash-background-small.png`;
+    const largeImageSrc = `${process.env.PUBLIC_URL}/resources/common/splash-background-1.png`;
+    const smallImageSrc = `${process.env.PUBLIC_URL}/resources/common/splash-background-small-1.png`;
     
     let loadedCount = 0;
     const totalImages = 2;
