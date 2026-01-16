@@ -14,30 +14,14 @@ function App() {
   const [textVisible, setTextVisible] = useState(false);
   const [splashFadeOut, setSplashFadeOut] = useState(false);
 
-  // Preload both splash images before showing anything
+  // Preload splash image before showing anything
   useEffect(() => {
-    const largeImageSrc = `${process.env.PUBLIC_URL}/resources/common/splash-background-1.png`;
-    const smallImageSrc = `${process.env.PUBLIC_URL}/resources/common/splash-background-small-1.png`;
+    const imageSrc = 'https://res.cloudinary.com/df01ppdtc/image/upload/v1768551384/splash-background-1_zftggz.jpg';
     
-    let loadedCount = 0;
-    const totalImages = 2;
-    
-    const onImageLoad = () => {
-      loadedCount++;
-      if (loadedCount >= totalImages) {
-        setSplashImageLoaded(true);
-      }
-    };
-    
-    const largeImg = new Image();
-    largeImg.onload = onImageLoad;
-    largeImg.onerror = onImageLoad; // Count errors as loaded to not block forever
-    largeImg.src = largeImageSrc;
-    
-    const smallImg = new Image();
-    smallImg.onload = onImageLoad;
-    smallImg.onerror = onImageLoad;
-    smallImg.src = smallImageSrc;
+    const img = new Image();
+    img.onload = () => setSplashImageLoaded(true);
+    img.onerror = () => setSplashImageLoaded(true); // Don't block forever on error
+    img.src = imageSrc;
   }, []);
 
   // Start splash sequence only after image is loaded
@@ -189,17 +173,11 @@ function App() {
       {/* Splash screen overlay */}
       {showSplash && splashImageLoaded && (
         <div className={`splash-screen ${splashFadeOut ? 'fade-out' : ''}`}>
-          <picture>
-            <source 
-              media="(max-width: 768px)" 
-              srcSet={`${process.env.PUBLIC_URL}/resources/common/splash-background-small.png`}
-            />
-            <img 
-              src={`${process.env.PUBLIC_URL}/resources/common/splash-background.png`}
-              alt="Splash background"
-              className="splash-background"
-            />
-          </picture>
+          <img 
+            src="https://res.cloudinary.com/df01ppdtc/image/upload/v1768551384/splash-background-1_zftggz.jpg"
+            alt="Splash background"
+            className="splash-background"
+          />
           <p className={`splash-text ${textVisible ? 'visible' : ''}`}>
             Dacă ai ajuns aici, înseamnă că e oficial: ești invitat la nunta noastră!
           </p>
