@@ -19,19 +19,17 @@ function App() {
     const imageSrc = 'https://res.cloudinary.com/df01ppdtc/image/upload/v1768551384/splash-background-1_zftggz.jpg';
     
     const img = new Image();
-    img.onload = () => {
-      setSplashImageLoaded(true);
-      // Remove the HTML pre-loader once splash is ready
-      const preLoader = document.getElementById('pre-loader');
-      if (preLoader) preLoader.remove();
-    };
-    img.onerror = () => {
-      setSplashImageLoaded(true);
-      const preLoader = document.getElementById('pre-loader');
-      if (preLoader) preLoader.remove();
-    };
+    img.onload = () => setSplashImageLoaded(true);
+    img.onerror = () => setSplashImageLoaded(true);
     img.src = imageSrc;
   }, []);
+
+  // Make root visible only after splash image is loaded and component has rendered
+  useEffect(() => {
+    if (splashImageLoaded) {
+      document.getElementById('root')?.classList.add('ready');
+    }
+  }, [splashImageLoaded]);
 
   // Start splash sequence only after image is loaded
   useEffect(() => {
