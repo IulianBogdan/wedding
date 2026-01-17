@@ -8,21 +8,54 @@
     <link rel="icon" type="image/svg+xml" href="/fav.png" />
     <title>Nunta Bogdan & Ana</title>
     <style>
-      /* Prevent any flash - hide root until ready */
+      /* Critical: Hide everything until splash is ready */
       html, body {
         margin: 0;
         padding: 0;
+        background-color: #fff !important;
+      }
+      /* HTML splash screen - shows before React loads */
+      #html-splash {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
         background-color: #fff;
+        z-index: 999999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
-      #root {
-        visibility: hidden;
+      #html-splash.fade-out {
+        animation: htmlSplashFadeOut 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
       }
-      #root.ready {
-        visibility: visible;
+      #html-splash.hidden {
+        display: none;
+      }
+      @keyframes htmlSplashFadeOut {
+        0% { opacity: 1; }
+        100% { opacity: 0; }
+      }
+      #html-splash img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
     </style>
   </head>
   <body>
+    <!-- HTML splash - shows immediately, before any JS loads -->
+    <div id="html-splash">
+      <img 
+        src="https://res.cloudinary.com/df01ppdtc/image/upload/v1768551384/splash-background-1_zftggz.jpg" 
+        alt=""
+        onload="this.parentElement.dataset.loaded='true'"
+      />
+    </div>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
   </body>

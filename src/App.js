@@ -9,33 +9,13 @@ import Location from './components/Location';
 import RSVP from './components/RSVP';
 
 function App() {
-  const [splashImageLoaded, setSplashImageLoaded] = useState(false);
   const [showSplash, setShowSplash] = useState(true);
   const [textVisible, setTextVisible] = useState(false);
   const [splashFadeOut, setSplashFadeOut] = useState(false);
 
-  // Preload splash image before showing anything
+  // Start splash sequence immediately - HTML splash is already showing
   useEffect(() => {
-    const imageSrc = 'https://res.cloudinary.com/df01ppdtc/image/upload/v1768551384/splash-background-1_zftggz.jpg';
-    
-    const img = new Image();
-    img.onload = () => setSplashImageLoaded(true);
-    img.onerror = () => setSplashImageLoaded(true);
-    img.src = imageSrc;
-  }, []);
-
-  // Make root visible only after splash image is loaded and component has rendered
-  useEffect(() => {
-    if (splashImageLoaded) {
-      document.getElementById('root')?.classList.add('ready');
-    }
-  }, [splashImageLoaded]);
-
-  // Start splash sequence only after image is loaded
-  useEffect(() => {
-    if (!splashImageLoaded) return;
-
-    // Text fades in shortly after splash appears
+    // Text fades in shortly after React mounts
     const textFadeInTimer = setTimeout(() => {
       setTextVisible(true);
     }, 100);
@@ -43,11 +23,15 @@ function App() {
     // After 3 seconds of text being visible, start splash fade out
     const fadeOutTimer = setTimeout(() => {
       setSplashFadeOut(true);
+      // Also fade out the HTML splash
+      document.getElementById('html-splash')?.classList.add('fade-out');
     }, 3300);
 
-    // Remove splash from DOM after fade out completes (2s fade-out)
+    // Remove splash and hide HTML splash after fade out completes
     const removeSplashTimer = setTimeout(() => {
       setShowSplash(false);
+      // Hide the HTML splash screen
+      document.getElementById('html-splash')?.classList.add('hidden');
     }, 5300);
 
     return () => {
@@ -55,7 +39,7 @@ function App() {
       clearTimeout(fadeOutTimer);
       clearTimeout(removeSplashTimer);
     };
-  }, [splashImageLoaded]);
+  }, []);
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -69,12 +53,6 @@ function App() {
       });
     }
   };
-
-  // Don't render anything until splash image is loaded
-  // The HTML pre-loader covers the screen until then
-  if (!splashImageLoaded) {
-    return null;
-  }
 
   return (
     <>
