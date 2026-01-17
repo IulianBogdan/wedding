@@ -72,9 +72,15 @@ function App() {
     }
   };
 
+  // Don't render anything until splash image is loaded
+  // The HTML pre-loader covers the screen until then
+  if (!splashImageLoaded) {
+    return null;
+  }
+
   return (
     <>
-      {/* Main content is always rendered behind splash */}
+      {/* Main content rendered behind splash */}
       <div className="App">
         <Navigation scrollToSection={scrollToSection} />
         <LandingPage />
@@ -174,13 +180,8 @@ function App() {
         </div>
       </div>
 
-      {/* Initial blank screen - shows until splash image is loaded */}
-      {!splashImageLoaded && (
-        <div className="initial-blank-screen" />
-      )}
-
       {/* Splash screen overlay */}
-      {showSplash && splashImageLoaded && (
+      {showSplash && (
         <div className={`splash-screen ${splashFadeOut ? 'fade-out' : ''}`}>
           <img 
             src="https://res.cloudinary.com/df01ppdtc/image/upload/v1768551384/splash-background-1_zftggz.jpg"
