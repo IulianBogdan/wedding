@@ -7,8 +7,22 @@
     <meta name="description" content="Wedding Invitation" />
     <link rel="icon" type="image/svg+xml" href="/fav.png" />
     <title>Nunta Bogdan & Ana</title>
+    <style>
+      /* Immediate blank screen - shown before React loads */
+      #pre-loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        z-index: 99999;
+      }
+    </style>
   </head>
   <body>
+    <!-- Pre-loader shown immediately before React mounts -->
+    <div id="pre-loader"></div>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
   </body>
