@@ -169,8 +169,8 @@
 
 /* Timeline Icon */
 .timeline-icon {
-  width: 96px;
-  height: 96px;
+  width: 95px;
+  height: 95px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
@@ -183,19 +183,6 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-}
-
-/* Larger icons for welcomeDrinks (4th) and firstDance (5th) */
-.timeline-item-wrapper:nth-child(4) .timeline-icon,
-.timeline-item-wrapper:nth-child(5) .timeline-icon {
-  width: 115px;
-  height: 115px;
-}
-
-/* Smaller icon for civilCeremony (1st) - 20% smaller */
-.timeline-item-wrapper:nth-child(1) .timeline-icon {
-  width: 77px;
-  height: 77px;
 }
 
 /* Horizontal Connector Lines */
@@ -246,17 +233,6 @@
   .timeline-item-right .timeline-icon::before {
     width: 60px;
     left: -60px;
-  }
-
-  .timeline-item-wrapper:nth-child(4) .timeline-icon,
-  .timeline-item-wrapper:nth-child(5) .timeline-icon {
-    width: 96px;
-    height: 96px;
-  }
-
-  .timeline-item-wrapper:nth-child(1) .timeline-icon {
-    width: 64px;
-    height: 64px;
   }
 }
 
@@ -310,17 +286,6 @@
     width: 50px;
     left: -50px;
   }
-
-  .timeline-item-wrapper:nth-child(4) .timeline-icon,
-  .timeline-item-wrapper:nth-child(5) .timeline-icon {
-    width: 86px;
-    height: 86px;
-  }
-
-  .timeline-item-wrapper:nth-child(1) .timeline-icon {
-    width: 58px;
-    height: 58px;
-  }
 }
 
 @media (max-width: 480px) {
@@ -368,17 +333,6 @@
   .timeline-item-right .timeline-icon::before {
     width: 25px;
     left: -25px;
-  }
-
-  .timeline-item-wrapper:nth-child(4) .timeline-icon,
-  .timeline-item-wrapper:nth-child(5) .timeline-icon {
-    width: 60px;
-    height: 60px;
-  }
-
-  .timeline-item-wrapper:nth-child(1) .timeline-icon {
-    width: 40px;
-    height: 40px;
   }
 }
 
