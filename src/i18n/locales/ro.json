@@ -14,6 +14,8 @@
     "rsvp": "Confirma prezenta"
   },
   "eventDate": {
+    "quoteLine1": "A iubi și a fi iubit este cea mai frumoasă realizare a vieții.",
+    "quoteLine2": "Mulțumim că alegeți să fiți alături de noi!",
     "title": "Ziua cea mare",
     "date": "06.06.2026",
     "days": "Zile",
@@ -60,15 +62,16 @@
     "ceremony": "Ceremonia",
     "party": "Petrecere",
     "events": {
-      "civilCeremony": "Cununia civilă",
-      "religiousCeremony": "Cununia religioasă",
+      "civilCeremony": "Ceremonie civila",
+      "religiousCeremony": "Ceremonie religioasă",
       "picturesSnacks": "Poze & Gustări",
       "welcomeDrinks": "Cocktail de bun venit",
-      "firstDance": "Primul dans",
+      "firstDance": "Dansul Mirilor",
       "entree": "Aperitiv",
       "firstCourse": "Felul întâi",
-      "cakeFireworks": "Tort & Artificii",
+      "cakeFireworks": "Tăierea Tortului & Artificii",
       "secondCourse": "Felul doi",
+      "sarmale": "Sarmale",
       "danceTillDawn": "Dans până în zori"
     }
   },
@@ -84,6 +87,7 @@
   },
   "rsvp": {
     "title": "Confirmare",
+    "subtitle": "Vă rugăm să confirmați prezența până la data de 01.05.2026",
     "fullName": "Nume Complet",
     "email": "Email",
     "fullNamePlaceholder": "Introduceți numele complet",

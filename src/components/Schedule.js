@@ -69,13 +69,18 @@ const Schedule = () => {
       image: `${process.env.PUBLIC_URL}/resources/schedule/icons/5.png`
     },
     {
-      time: '21:00',
+      time: '20:30',
       titleKey: 'schedule.events.entree',
       image: `${process.env.PUBLIC_URL}/resources/schedule/icons/6.png`
     },
     {
-      time: '23:00',
+      time: '22:00',
       titleKey: 'schedule.events.firstCourse',
+      image: `${process.env.PUBLIC_URL}/resources/schedule/icons/6.png`
+    },
+    {
+      time: '23:15',
+      titleKey: 'schedule.events.sarmale',
       image: `${process.env.PUBLIC_URL}/resources/schedule/icons/6.png`
     },
     {
@@ -84,12 +89,12 @@ const Schedule = () => {
       image: `${process.env.PUBLIC_URL}/resources/schedule/icons/8.png`
     },
     {
-      time: '01:00',
+      time: '01:30',
       titleKey: 'schedule.events.secondCourse',
       image: `${process.env.PUBLIC_URL}/resources/schedule/icons/6.png`
     },
     {
-      time: '01:30 - 05:00',
+      time: '02:00 - 05:00',
       titleKey: 'schedule.events.danceTillDawn',
       image: `${process.env.PUBLIC_URL}/resources/schedule/icons/10.png`
     }

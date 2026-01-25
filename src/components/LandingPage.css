@@ -3,7 +3,6 @@
 .landing-page {
   position: relative;
   width: 100%;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -100,6 +99,28 @@
   max-width: 800px;
   margin: 0 auto;
   width: 100%;
+}
+
+/* Quote */
+.landing-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-style: italic;
+  font-weight: 600;
+  color: #555555;
+  text-align: center;
+  line-height: 1.8;
+  max-width: 700px;
+  margin: 40px auto 0;
+  padding: 0 20px;
+}
+
+.landing-quote p {
+  margin: 0;
+}
+
+.landing-quote p:first-child {
+  margin-bottom: 8px;
 }
 
 /* Couple Names */
@@ -368,6 +389,13 @@
 
   .landing-countdown .countdown-label {
     font-size: 0.75rem;
+  }
+
+  .landing-quote {
+    font-size: 1.35rem;
+    margin-top: 30px;
+    margin-bottom: 0;
+    padding: 0 15px;
   }
 
   .floral-accent-top-left {

@@ -163,6 +163,28 @@
   align-items: flex-start;
 }
 
+/* Gypso Decoration */
+.step-gypso {
+  position: absolute;
+  width: 270px;
+  height: auto;
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.story-step.step-left .step-gypso {
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.story-step.step-right .step-gypso {
+  left: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 /* Step Marker */
 .step-marker {
   position: absolute;
@@ -332,6 +354,10 @@
   .story-step:nth-child(4) .step-image {
     height: 280px;
   }
+
+  .step-gypso {
+    width: 200px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -401,6 +427,10 @@
   
   .step-description {
     font-size: 0.95rem;
+  }
+
+  .step-gypso {
+    display: none;
   }
 }
 

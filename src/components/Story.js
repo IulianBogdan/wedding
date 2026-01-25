@@ -215,6 +215,13 @@ const Story = () => {
                 className={`story-step ${index % 2 === 0 ? 'step-left' : 'step-right'} ${visibleSteps.has(index) ? 'visible' : ''}`}
                 ref={(el) => (stepRefs.current[index] = el)}
               >
+                {/* Gypso decoration on opposite side */}
+                <img 
+                  src={`${process.env.PUBLIC_URL}/resources/common/gypso-${index % 2 === 0 ? 'right' : 'left'}-${index % 4 < 2 ? 'top' : 'bottom'}.png`}
+                  alt=""
+                  className="step-gypso"
+                />
+                
                 <div className="step-marker">
                   <span className="marker-number">{getStepLabel(step.id)}</span>
                   <div className="marker-pulse"></div>

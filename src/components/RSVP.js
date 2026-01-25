@@ -52,6 +52,7 @@ const RSVP = () => {
         <form className="rsvp-form" onSubmit={handleSubmit}>
           <div className="rsvp-form-header">
             <h2 className="rsvp-title">{t('rsvp.title')}</h2>
+            <p className="rsvp-subtitle">{t('rsvp.subtitle')}</p>
           </div>
           
           <div className="rsvp-form-divider"></div>

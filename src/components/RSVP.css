@@ -2,7 +2,7 @@
   padding: 100px 20px 60px;
   overflow-x: hidden;
   position: relative;
-  background: linear-gradient(180deg, #fafafa 0%, #f5f3f0 100%);
+  background: #fafafa;
 }
 
 .rsvp-container {
@@ -39,7 +39,7 @@
 
 .rsvp-form-header .rsvp-subtitle {
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   font-style: italic;
   color: #888;
   margin-top: 10px;

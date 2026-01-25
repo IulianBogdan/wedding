@@ -90,6 +90,12 @@ const LandingPage = () => {
               </div>
             </div>
           </div>
+          
+          {/* Quote */}
+          <div className="landing-quote">
+            <p>{t('eventDate.quoteLine1')}</p>
+            <p>{t('eventDate.quoteLine2')}</p>
+          </div>
         </div>
       </div>
     </section>

@@ -14,6 +14,8 @@
     "rsvp": "RSVP"
   },
   "eventDate": {
+    "quoteLine1": "To love and be loved is the most beautiful achievement in life.",
+    "quoteLine2": "Thank you for choosing to be with us.",
     "title": "The Big Day",
     "date": "06.06.2026",
     "days": "Days",
@@ -64,11 +66,12 @@
       "religiousCeremony": "Religious Ceremony",
       "picturesSnacks": "Pictures & Snacks",
       "welcomeDrinks": "Welcome Drinks",
-      "firstDance": "First Dance",
+      "firstDance": "Newlyweds' Dance",
       "entree": "Entrée",
       "firstCourse": "First Course",
-      "cakeFireworks": "Cake & Fireworks",
+      "cakeFireworks": "Cake Cutting & Fireworks",
       "secondCourse": "Second Course",
+      "sarmale": "Sarmale",
       "danceTillDawn": "Dance Till Dawn"
     }
   },
@@ -84,6 +87,7 @@
   },
   "rsvp": {
     "title": "RSVP",
+    "subtitle": "Please confirm your attendance by 01.05.2026",
     "fullName": "Full Name",
     "email": "Email",
     "fullNamePlaceholder": "Enter your full name",
