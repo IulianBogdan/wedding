@@ -192,6 +192,12 @@
   height: 115px;
 }
 
+/* Smaller icon for civilCeremony (1st) - 20% smaller */
+.timeline-item-wrapper:nth-child(1) .timeline-icon {
+  width: 77px;
+  height: 77px;
+}
+
 /* Horizontal Connector Lines */
 .timeline-item-left .timeline-icon::after {
   content: '';
@@ -246,6 +252,11 @@
   .timeline-item-wrapper:nth-child(5) .timeline-icon {
     width: 96px;
     height: 96px;
+  }
+
+  .timeline-item-wrapper:nth-child(1) .timeline-icon {
+    width: 64px;
+    height: 64px;
   }
 }
 
@@ -305,6 +316,11 @@
     width: 86px;
     height: 86px;
   }
+
+  .timeline-item-wrapper:nth-child(1) .timeline-icon {
+    width: 58px;
+    height: 58px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -358,6 +374,11 @@
   .timeline-item-wrapper:nth-child(5) .timeline-icon {
     width: 77px;
     height: 77px;
+  }
+
+  .timeline-item-wrapper:nth-child(1) .timeline-icon {
+    width: 51px;
+    height: 51px;
   }
 }
 
