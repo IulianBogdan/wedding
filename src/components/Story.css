@@ -185,11 +185,12 @@
   transform: translateY(-50%);
 }
 
-/* Step Marker */
+/* Step Marker - centered with image (image height 300px, center at 150px) */
 .step-marker {
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
+  top: 150px;
+  transform: translate(-50%, -50%);
   width: 48px;
   height: 48px;
   background: #b0b0b0;
@@ -358,6 +359,15 @@
   .step-gypso {
     width: 200px;
   }
+
+  .step-marker {
+    top: 120px;
+  }
+
+  .story-step:nth-child(3) .step-marker,
+  .story-step:nth-child(4) .step-marker {
+    top: 140px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -400,8 +410,14 @@
   
   .step-marker {
     left: 30px;
+    top: 110px;
     width: 46px;
     height: 46px;
+  }
+
+  .story-step:nth-child(3) .step-marker,
+  .story-step:nth-child(4) .step-marker {
+    top: 130px;
   }
   
   .marker-number {
@@ -457,8 +473,14 @@
 
   .step-marker {
     left: 20px;
+    top: 100px;
     width: 40px;
     height: 40px;
+  }
+
+  .story-step:nth-child(3) .step-marker,
+  .story-step:nth-child(4) .step-marker {
+    top: 120px;
   }
 
   .marker-number {
