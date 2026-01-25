@@ -88,7 +88,7 @@ const RSVP = () => {
                   checked={vegetarianMenu}
                   onChange={(e) => setVegetarianMenu(e.target.checked)}
                 />
-                <span>Meniu vegetarian</span>
+                <span>{t('rsvp.vegetarianMenu')}</span>
               </label>
             </div>
 
@@ -100,7 +100,7 @@ const RSVP = () => {
                   checked={hasAllergens}
                   onChange={(e) => setHasAllergens(e.target.checked)}
                 />
-                <span>Alergeni</span>
+                <span>{t('rsvp.allergens')}</span>
               </label>
             </div>
 
@@ -109,7 +109,7 @@ const RSVP = () => {
                 <input
                   type="text"
                   name="allergens"
-                  placeholder="Specificați alergenii..."
+                  placeholder={t('rsvp.allergensPlaceholder')}
                 />
               </div>
             )}
@@ -144,7 +144,7 @@ const RSVP = () => {
                       checked={partnerVegetarianMenu}
                       onChange={(e) => setPartnerVegetarianMenu(e.target.checked)}
                     />
-                    <span>Meniu vegetarian</span>
+                    <span>{t('rsvp.vegetarianMenu')}</span>
                   </label>
                 </div>
                 <div className="nested-checkbox">
@@ -155,7 +155,7 @@ const RSVP = () => {
                       checked={partnerHasAllergens}
                       onChange={(e) => setPartnerHasAllergens(e.target.checked)}
                     />
-                    <span>Alergeni</span>
+                    <span>{t('rsvp.allergens')}</span>
                   </label>
                 </div>
                 {partnerHasAllergens && (
@@ -163,7 +163,7 @@ const RSVP = () => {
                     <input
                       type="text"
                       name="partnerAllergens"
-                      placeholder="Specificați alergenii..."
+                      placeholder={t('rsvp.allergensPlaceholder')}
                     />
                   </div>
                 )}

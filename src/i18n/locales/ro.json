@@ -1,7 +1,8 @@
 {
   "landing": {
     "title": "Ana & Bogdan",
-    "subtitle": "Dacă ai ajuns aici, înseamnă că e oficial: ești invitat la nunta noastră!",
+    "subtitleLine1": "Dacă vezi acest mesaj, e oficial:",
+    "subtitleLine2": "ești invitat la nunta noastră!",
     "nameFirst": "ANA",
     "and": "și",
     "nameSecond": "BOGDAN",
@@ -58,7 +59,7 @@
     }
   },
   "schedule": {
-    "title": "Program",
+    "title": "Momentele Zilei",
     "ceremony": "Ceremonia",
     "party": "Petrecere",
     "events": {
@@ -92,6 +93,9 @@
     "email": "Email",
     "fullNamePlaceholder": "Introduceți numele complet",
     "emailPlaceholder": "Introduceți adresa de email",
+    "vegetarianMenu": "Meniu vegetarian",
+    "allergens": "Alergeni",
+    "allergensPlaceholder": "Specificați alergenii...",
     "hasPartner": "Vin insoţit/ă",
     "partnerName": "Numele Complet",
     "partnerNamePlaceholder": "Introduceți numele complet",

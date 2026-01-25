@@ -1,7 +1,8 @@
 {
   "landing": {
     "title": "Ana & Bogdan",
-    "subtitle": "If you've reached this page, you are invited to our awesome wedding",
+    "subtitleLine1": "If you've reached this page,",
+    "subtitleLine2": "you are officially invited to our awesome wedding!",
     "nameFirst": "ANA",
     "and": "and",
     "nameSecond": "BOGDAN",
@@ -92,6 +93,9 @@
     "email": "Email",
     "fullNamePlaceholder": "Enter your full name",
     "emailPlaceholder": "Enter your email address",
+    "vegetarianMenu": "Vegetarian menu",
+    "allergens": "Allergens",
+    "allergensPlaceholder": "Specify allergens...",
     "hasPartner": "Coming with partner?",
     "partnerName": "Full Name",
     "partnerNamePlaceholder": "Enter your partner's full name",

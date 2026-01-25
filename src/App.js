@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import './App.css';
 import LandingPage from './components/LandingPage';
 import Navigation from './components/Navigation';
@@ -9,6 +10,7 @@ import Location from './components/Location';
 import RSVP from './components/RSVP';
 
 function App() {
+  const { t } = useTranslation();
   const [showSplash, setShowSplash] = useState(true);
   const [textVisible, setTextVisible] = useState(false);
   const [splashFadeOut, setSplashFadeOut] = useState(false);
@@ -164,9 +166,10 @@ function App() {
             alt="Splash background"
             className="splash-background"
           />
-          <p className={`splash-text ${textVisible ? 'visible' : ''}`}>
-            Dacă ai ajuns aici, înseamnă că e oficial: ești invitat la nunta noastră!
-          </p>
+          <div className={`splash-text ${textVisible ? 'visible' : ''}`}>
+            <p>{t('landing.subtitleLine1')}</p>
+            <p>{t('landing.subtitleLine2')}</p>
+          </div>
         </div>
       )}
     </>
