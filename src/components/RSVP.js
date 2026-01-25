@@ -258,6 +258,11 @@ const RSVP = () => {
             </button>
           </div>
         </form>
+
+        <footer className="rsvp-footer">
+          <a href="tel:+40744484969">Ana – 0744484969</a>
+          <a href="tel:+40746082776">Bogdan – 0746082776</a>
+        </footer>
       </div>
     </section>
   );

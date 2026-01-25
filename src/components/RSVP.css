@@ -318,6 +318,30 @@
   color: #ffffff;
 }
 
+/* RSVP Footer */
+.rsvp-footer {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid #e0dcd5;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.rsvp-footer a {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.35rem;
+  color: #5a5a5a;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: color 0.2s ease;
+}
+
+.rsvp-footer a:hover {
+  color: #3d3d3d;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .rsvp-section {
@@ -365,5 +389,15 @@
     padding: 14px 18px;
     font-size: 0.85rem;
     letter-spacing: 2px;
+  }
+
+  .rsvp-footer {
+    margin-top: 32px;
+    padding-top: 20px;
+    gap: 16px;
+  }
+
+  .rsvp-footer a {
+    font-size: 1.15rem;
   }
 }
