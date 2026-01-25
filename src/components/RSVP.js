@@ -2,6 +2,61 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import './RSVP.css';
 
+// Calendar event details
+const EVENT = {
+  title: 'Nunta Ana & Bogdan',
+  description: 'Nunta Ana & Bogdan - La Boheme Noblesse',
+  location: 'La Boheme Noblesse, Pitești, Romania',
+  startDate: '2026-06-06',
+  startTime: '17:00',
+  endDate: '2026-06-07',
+  endTime: '05:00'
+};
+
+// Generate Google Calendar URL
+const getGoogleCalendarUrl = () => {
+  const startDateTime = `${EVENT.startDate.replace(/-/g, '')}T${EVENT.startTime.replace(':', '')}00`;
+  const endDateTime = `${EVENT.endDate.replace(/-/g, '')}T${EVENT.endTime.replace(':', '')}00`;
+  
+  const params = new URLSearchParams({
+    action: 'TEMPLATE',
+    text: EVENT.title,
+    dates: `${startDateTime}/${endDateTime}`,
+    details: EVENT.description,
+    location: EVENT.location,
+    ctz: 'Europe/Bucharest'
+  });
+  
+  return `https://calendar.google.com/calendar/render?${params.toString()}`;
+};
+
+// Generate ICS file content and download
+const downloadICS = () => {
+  const formatDate = (date, time) => {
+    return `${date.replace(/-/g, '')}T${time.replace(':', '')}00`;
+  };
+  
+  const icsContent = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ana & Bogdan Wedding//EN
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Bucharest:${formatDate(EVENT.startDate, EVENT.startTime)}
+DTEND;TZID=Europe/Bucharest:${formatDate(EVENT.endDate, EVENT.endTime)}
+SUMMARY:${EVENT.title}
+DESCRIPTION:${EVENT.description}
+LOCATION:${EVENT.location}
+END:VEVENT
+END:VCALENDAR`;
+
+  const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = 'nunta-ana-bogdan.ics';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
+
 const RSVP = () => {
   const { t } = useTranslation();
   const [hasPartner, setHasPartner] = useState(false);
@@ -173,6 +228,28 @@ const RSVP = () => {
             {submitStatus && (
               <div className={`submit-status ${submitStatus.type}`}>
                 {submitStatus.message}
+                {submitStatus.type === 'success' && (
+                  <div className="add-to-calendar">
+                    <p className="calendar-label">{t('rsvp.addToCalendar')}</p>
+                    <div className="calendar-buttons">
+                      <a 
+                        href={getGoogleCalendarUrl()} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="calendar-btn google"
+                      >
+                        Google Calendar
+                      </a>
+                      <button 
+                        type="button"
+                        onClick={downloadICS}
+                        className="calendar-btn ics"
+                      >
+                        Apple / Outlook
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
             )}
 

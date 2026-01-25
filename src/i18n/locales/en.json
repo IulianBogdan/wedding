@@ -102,7 +102,8 @@
     "submit": "Submit RSVP",
     "submitting": "Submitting...",
     "successMessage": "RSVP submitted successfully! We can't wait to see you!",
-    "errorMessage": "Failed to submit RSVP. Please try again."
+    "errorMessage": "Failed to submit RSVP. Please try again.",
+    "addToCalendar": "Add to calendar:"
   }
 }
 
