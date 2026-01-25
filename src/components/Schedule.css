@@ -157,6 +157,10 @@
   font-family: "Cormorant Garamond", serif;
 }
 
+.timeline-time:empty {
+  display: none;
+}
+
 .timeline-title {
   font-size: 1.1rem;
   font-weight: 600;

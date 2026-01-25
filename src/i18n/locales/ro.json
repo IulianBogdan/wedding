@@ -26,7 +26,7 @@
   },
   "story": {
     "title": "Povestea noastră",
-    "subtitle": "Fiecare poveste de dragoste este frumoasă, dar a noastră este preferata noastră",
+    "subtitle": "Fiecare poveste de dragoste este frumoasă, dar a noastră ne place cel mai mult!",
     "steps": {
       "step1": {
         "title": "Cum ne-am cunoscut",
@@ -34,7 +34,7 @@
       },
       "step2": {
         "title": "Cei mai buni prieteni",
-        "text": "De la străini la cei mai buni prieteni. Discuții până noaptea târziu, glume doar ale noastre și o legătură care a crescut tot mai puternică."
+        "text": "De la străini la cei mai buni prieteni. Discuții până târziu, glume doar ale noastre și o legătură care a crescut tot mai puternică."
       },
       "step3": {
         "title": "Oficial împreună",
@@ -46,7 +46,7 @@
       },
       "step5": {
         "title": "Călătorii",
-        "text": "Explorând lumea împreună, o aventură pe rând. Creând amintiri pe tot globul."
+        "text": "Explorând lumea împreună, cate o aventură pe rând. Creând amintiri pe tot globul."
       },
       "step6": {
         "title": "Cererea",
@@ -72,6 +72,7 @@
       "firstCourse": "Felul întâi",
       "cakeFireworks": "Tăierea Tortului & Artificii",
       "secondCourse": "Felul doi",
+      "tort": "Servirea Tortului",
       "sarmale": "Sarmale",
       "danceTillDawn": "Dans până în zori"
     }

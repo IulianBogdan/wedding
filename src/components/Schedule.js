@@ -94,7 +94,12 @@ const Schedule = () => {
       image: `${process.env.PUBLIC_URL}/resources/schedule/icons/6.png`
     },
     {
-      time: '02:00 - 05:00',
+      time: '02:30',
+      titleKey: 'schedule.events.tort',
+      image: `${process.env.PUBLIC_URL}/resources/schedule/icons/6.png`
+    },
+    {
+      time: '',
       titleKey: 'schedule.events.danceTillDawn',
       image: `${process.env.PUBLIC_URL}/resources/schedule/icons/10.png`
     }
