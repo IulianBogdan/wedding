@@ -339,12 +339,16 @@
   
   .timeline-content-wrapper.left {
     padding-right: 25px;
-    gap: 8px;
+    gap: 4px;
   }
   
   .timeline-content-wrapper.right {
     padding-left: 25px;
-    gap: 8px;
+    gap: 4px;
+  }
+  
+  .timeline-content {
+    flex-shrink: 0;
   }
   
   .timeline-icon {
